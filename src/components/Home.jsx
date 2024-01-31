@@ -15,6 +15,7 @@ export default function Home() {
     const [resumeCategories, setResumeCategories] = useState(CATEGORIES);
     const [resumeTemplate, setResumeTemplate] = useState(null);
     const [fadeIn, setFadeIn] = useState(false);
+    const [toast, setToast] = useState(false);
     let otherCategories;
 
     const getStarted = (id) => {
@@ -33,6 +34,7 @@ export default function Home() {
                 }
             }
             setFadeIn(true); // Trigger fade-in effect after a short delay
+            setToast(true);
         }, 500);
     };
 
@@ -91,11 +93,12 @@ export default function Home() {
                             getStarted={getStarted}
                             handleTemplateClick={handleTemplateClick}
                             className={`fade-in ${fadeIn ? 'active' : ''}`}
+                            toast={toast}
                         /> 
                     </>
                 ) : (
                     <>
-                    <h2>Welcome to <span className="brand">Resume Monster</span>, Select category to get started</h2>
+                    <h2>Welcome to <span className="brand">Resume Monster</span>, Select a category to get started</h2>
                     <div className="category-selector">
                         {resumeCategories.map((category) => (
                         <div
@@ -103,7 +106,11 @@ export default function Home() {
                             className={`category 
                             ${category.id % 2 === 0 ? 'border-blue-shaded hover-shade-blue' : 'border-purple-shaded hover-shade-purple'}`}
                         >
-                            <h3>{category.title}</h3>
+                            <h3 className={`
+                                ${category.id % 2 === 0 ? 'border-bottom-blue-shaded' : 'border-bottom-purple-shaded'}`}
+                            >
+                                {category.title}
+                            </h3>
                             <p>{category.description}</p>
                             <button
                             className={`

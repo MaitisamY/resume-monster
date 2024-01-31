@@ -133,6 +133,92 @@
     border: none;
 }
 
+.border {
+    border: 1px solid;
+}
+
+.border-top-dull {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.border-right-dull {
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.border-bottom-dull {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.border-left-dull {
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.border-top-blue {
+    border-top: 1px solid rgba(46, 100, 255, 1);
+}
+
+.border-right-blue {
+    border-right: 1px solid rgba(46, 100, 255, 1);
+}
+
+.border-bottom-blue {
+    border-bottom: 1px solid rgba(46, 100, 255, 1);
+}
+
+.border-left-blue {
+    border-left: 1px solid rgba(46, 100, 255, 1);
+}
+
+.border-top-purple {
+    border-top: 1px solid rgba(192, 37, 255, 1);
+}
+
+.border-right-purple {
+    border-right: 1px solid rgba(192, 37, 255, 1);
+}
+
+.border-bottom-purple {
+    border-bottom: 1px solid rgba(192, 37, 255, 1);
+}
+
+.border-left-purple {
+    border-left: 1px solid rgba(192, 37, 255, 1);
+}
+
+/* Shaded single border colors */
+
+.border-top-blue-shaded {
+    border-top: 1px solid rgba(46, 100, 255, 0.25);
+}
+
+.border-right-blue-shaded {
+    border-right: 1px solid rgba(46, 100, 255, 0.25);
+}
+
+.border-bottom-blue-shaded {
+    border-bottom: 1px solid rgba(46, 100, 255, 0.25);
+}
+
+.border-left-blue-shaded {
+    border-left: 1px solid rgba(46, 100, 255, 0.25);
+}
+
+.border-top-purple-shaded {
+    border-top: 1px solid rgba(192, 37, 255, 0.25);
+}
+
+.border-right-purple-shaded {
+    border-right: 1px solid rgba(192, 37, 255, 0.25);
+}
+
+.border-bottom-purple-shaded {
+    border-bottom: 1px solid rgba(192, 37, 255, 0.25);
+}
+
+.border-left-purple-shaded {
+    border-left: 1px solid rgba(192, 37, 255, 0.25);
+}
+
 .border-blue {
     border-color: rgba(46, 100, 255, 1);
 }

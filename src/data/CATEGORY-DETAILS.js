@@ -45,36 +45,61 @@ export const CATEGORIZED = [
 const CATEGORY_DETAILS = [
     {
       id: 1,
-      definition: `A chronological resume is a traditional resume format that lists an individual's work experiences 
-      in reverse chronological order, starting with the most recent job. It emphasizes career progression and showcases 
-      a candidate's employment history in a clear and linear manner.`,
+      definition: `A chronological resume is a traditional and widely used format that presents an individual's 
+      work experiences in reverse chronological order, starting with the most recent job. It emphasizes career progression 
+      and showcases a candidate's employment history in a clear and linear manner.`,
       features: [
-        { 'Reverse Chronological Order': `Work experiences are listed from the most recent to the oldest.` },
-        { 'Focus on Work History': `Places emphasis on detailed descriptions of job roles, responsibilities, and achievements.` },
-        { 'Highlight Career Growth': `Showcases the progression and continuity of the candidate's career.` },
-        { 'Easy to Read': `Provides a straightforward and easy-to-follow structure for recruiters.` },
+        { 'Reverse Chronological Order': [
+          `Work experiences are listed from the most recent to the oldest.`,
+          `Provides a clear timeline of a candidate's career history.`,
+        ]},
+        { 'Focus on Work History': [
+          `Places emphasis on detailed descriptions of job roles, responsibilities, and achievements.`,
+          `Offers a comprehensive overview of the candidate's professional journey.`,
+        ]},
+        { 'Highlight Career Growth': [
+          `Showcases the progression and continuity of the candidate's career.`,
+          `Enables recruiters to trace the development of skills and experiences.`,
+        ]},
+        { 'Easy to Read': [
+          `Provides a straightforward and easy-to-follow structure for recruiters.`,
+          `Allows for quick assessment of a candidate's work history and qualifications.`,
+        ]},
       ],
-      samples: [ 
-        { 'Stylish': STYLISH }, 
-        { 'Modern': MODERN }, 
-        { 'Minimalist': MINIMALIST }, 
+      structure: [
+        { 'Contact Information, Professional Summary, and Skills': [
+          `Standard contact details, a brief summary, and a section highlighting skills.`
+        ]},
+        { 'Work Experience': [
+          `Chronological listing of work experience, focusing on key achievements.`
+        ]},
+        { 'Education': [
+          `Details about educational background.`
+        ]},
+        { 'Certifications and Achievements': [
+          `Include relevant certifications, awards, or achievements.`
+        ]},
       ],
+      whenToUse: [
+        `When showcasing a strong and consistent work history is important.`,
+        `Suited for individuals with a clear career progression.`,
+      ],
+      ending: `A chronological resume effectively presents a candidate's professional journey, highlighting career growth 
+      and experiences in a linear and organized manner.`,
     },
     {
       id: 2,
-      definition: `A functional resume focuses on skills and qualifications rather than chronological work history. 
-      It emphasizes transferable skills and is suitable for those with employment gaps or changing careers.`,
+      definition: `A functional resume is a non-traditional format that prioritizes skills and qualifications over a detailed 
+      chronological work history. It is particularly useful for individuals with employment gaps, those changing careers, 
+      or anyone wanting to highlight specific skills relevant to a new position.`,
       features: [
         { 'Skills Emphasis': `Highlights skills and qualifications over a detailed work history.` },
         { 'Transferable Skills': `Emphasizes skills that can be applied across different roles and industries.` },
         { 'Address Employment Gaps': `Ideal for individuals with gaps in their work history.` },
         { 'Career Changers': `Suited for those transitioning to a new career path.` },
       ],
-      samples: [ 
-        { 'Stylish': STYLISH }, 
-        { 'Modern': MODERN }, 
-        { 'Minimalist': MINIMALIST }, 
-      ],
+      ending: `A functional resume strategically presents a targeted skill set, allowing individuals to stand out in situations 
+      where traditional chronological formats may not effectively convey their strengths.`,
     },
     {
       id: 3,
