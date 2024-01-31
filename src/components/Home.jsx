@@ -64,90 +64,34 @@ export default function Home() {
     return (
         <>
             <header>
-            <img src="/icon.png" alt="Logo" />
+                <a href="/">
+                    <img src="/icon.png" alt="Logo" />
+                </a>
             </header>
             <main className={`fade-in ${fadeIn ? 'active' : ''}`}>
                 {resumeCategories.length === 1 ? (
                     <>
                     <h2><span className="brand-2">Resume Monster</span></h2>
                     <div>
-                        {resumeTemplate === null ? (
-                            <>
-                            <button className="home-btn cursor-pointer border-none px-30 py-5 bg-white hover-bg-dull hover-shade-black" 
-                                onClick={() => getStarted(0)}> 
-                                &larr; HOME 
-                            </button>
-                                &nbsp;
-                            <span className="breadcrumb"> / category / 
-                                {` 
-                                    ${resumeCategories[0].title.trim().
-                                    toLowerCase().replaceAll(' ', '-').replace('(', '').replace(')', '').replace('/', '-')}
-                                `}
-                            </span>
-                            </>
-                        ) : (
-                            <>
-                            <button className="home-btn cursor-pointer border-none px-30 py-5 bg-white hover-bg-dull hover-shade-black" 
-                                onClick={() => getStarted(0)}> 
-                                &larr; HOME 
-                            </button>
-                                &nbsp;
-                            <span className="breadcrumb"> / category / </span>
-                            <button className="home-btn cursor-pointer border-none px-30 py-5 bg-white hover-bg-dull hover-shade-black" 
-                                onClick={() => handleTemplateClose(resumeCategories[0].id)}> 
-                                &larr;
-                                {`   
-                                    ${resumeCategories[0].title.trim().
-                                    toLowerCase().replaceAll(' ', '-').replace('(', '').replace(')', '').replace('/', '-')}
-                                `} 
-                            </button>
-                            <span className="breadcrumb"> {`${' / template / '}`} </span>
-                            </>
-                        )}
+                        <button className="home-btn cursor-pointer border-none px-30 py-5 bg-white hover-bg-dull hover-shade-black" 
+                            onClick={() => getStarted(0)}> 
+                            &larr; HOME 
+                        </button>
+                            &nbsp;
+                        <span className="breadcrumb"> /  
+                            {` 
+                                ${resumeCategories[0].title.trim().
+                                toLowerCase().replaceAll(' ', '-').replace('(', '').replace(')', '').replace('/', '-')}
+                            `}
+                        </span>
                     </div>
-                    {
-                        resumeTemplate === 1 ? (
-                            <Classic 
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        ) : resumeTemplate === 2 ? (
-                            <Contemporary 
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        ) : resumeTemplate === 3 ? (
-                            <Minimalist 
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        ) : resumeTemplate === 4 ? (
-                            <Modern 
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        ) : resumeTemplate === 5 ? (
-                            <Professional 
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        ) : resumeTemplate === 6 ? (
-                            <Standard 
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        ) : resumeTemplate === 7 ? (
-                            <Stylish 
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        ) : resumeTemplate === 8 ? (
-                            <Technical 
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        ) : (
-                            <Category 
-                                id={resumeCategories[0].id} 
-                                title={resumeCategories[0].title}
-                                getStarted={getStarted}
-                                handleTemplateClick={handleTemplateClick}
-                                className={`fade-in ${fadeIn ? 'active' : ''}`}
-                            />
-                        )
-                    }
+                        <Category 
+                            id={resumeCategories[0].id} 
+                            title={resumeCategories[0].title}
+                            getStarted={getStarted}
+                            handleTemplateClick={handleTemplateClick}
+                            className={`fade-in ${fadeIn ? 'active' : ''}`}
+                        /> 
                     </>
                 ) : (
                     <>
@@ -176,7 +120,7 @@ export default function Home() {
                 )}
             </main>
             <footer>
-                <p>© {new Date().getFullYear()}, Resume Monster.</p>
+                <p>&copy; {new Date().getFullYear()}, Resume Monster.</p>
             </footer>
         </>
     )
