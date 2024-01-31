@@ -1,0 +1,200 @@
+/* src\index.css */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+  
+.fade-in.active {
+    opacity: 1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #242424;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header img {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+    filter: drop-shadow(0 0 2em #C026FF);
+}
+
+header img:hover {
+    cursor: pointer;
+    filter: drop-shadow(0 0 2em #2E64FF);
+}
+
+header h1 {
+    font-size: 55px;
+    text-transform: uppercase;
+    background: #2E64FF;
+    background: repeating-radial-gradient(circle farthest-corner at center center, #2E64FF 0%, #C026FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    min-height: 79vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+main h2 {
+    text-align: center;
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    font-size: 25px;
+    font-family: 'Work Sans', sans-serif;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+}
+
+main h2 .brand {
+    font-size: 55px;
+    text-transform: uppercase;
+    background: #2E64FF;
+    background: repeating-radial-gradient(circle farthest-corner at center center, #2E64FF 0%, #C026FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+main h2 .brand-2 {
+    font-size: 35px;
+    text-transform: uppercase;
+    background: #2E64FF;
+    background: repeating-radial-gradient(circle farthest-corner at center center, #2E64FF 0%, #C026FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.category-selector {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    flex-wrap: wrap;
+    padding: 1.5rem 3rem;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    gap: 1.5rem;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.category {
+    width: 20%;
+    height: auto;
+    padding: 1rem 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    transition: all 0.5s ease-in-out;
+}
+
+.category h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    padding: 5px 0 15px 0;
+    border-bottom: 1px solid rgba(87, 87, 87, 0.5);
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    background: #2E64FF;
+    background: repeating-radial-gradient(circle farthest-corner at center center, #2E64FF 0%, #C026FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    width: 100%;
+}
+
+.category p {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.category button {
+    border-radius: 10px;
+    border: 1px solid;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.category button:hover {
+    transform: scale(1.05);
+}
+
+.home-btn {
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.breadcrumb {
+    font-size: 20px;
+    font-weight: bold;
+    background: #2E64FF;
+    background: repeating-radial-gradient(circle farthest-corner at center center, #2E64FF 0%, #C026FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Work Sans', sans-serif;
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0 0 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    color: #fff;
+    font-size: 18px;
+}

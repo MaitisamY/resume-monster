@@ -1,0 +1,133 @@
+.single-category-view {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 96%;
+    height: auto;
+}
+
+.detail-box {
+    position: sticky;
+    -webkit-position: sticky;
+    top: -10px;
+    width: 25%;
+    height: auto;
+    padding: 1rem 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(87, 87, 87, 0.3);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+    background-color: #242323;
+}
+
+.detail-box h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+    padding: 15px 0 20px 0;
+    border-bottom: 1px solid rgba(87, 87, 87, 0.3);
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    background: #2E64FF;
+    background: repeating-radial-gradient(circle farthest-corner at center center, #2E64FF 0%, #C026FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    width: 100%;
+}
+
+.detail-box h4 {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+    text-align: left;
+    width: 100%;
+}
+
+.detail-box p {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    padding: 20px 30px;
+    line-height: 1.3;
+    color: #fff;
+    text-align: left;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.detail-box li {
+    list-style-type: circle;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    padding: 5px 30px 10px 30px;
+    line-height: 1.3;
+    color: #fff;
+    text-align: left;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.detail-box li span {
+    font-weight: bold;
+    color: #fff;
+}
+
+.selection-box {
+    width: 55%;
+    height: auto;
+    padding: 1rem 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    transition: all 0.5s ease-in-out;
+}
+
+.selection-box h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+    padding: 15px 0 15px 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    background: #2E64FF;
+    background: repeating-radial-gradient(circle farthest-corner at center center, #2E64FF 0%, #C026FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    width: 100%;
+}
+
+.resume-box {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: center;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+
+
