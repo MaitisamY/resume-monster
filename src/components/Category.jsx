@@ -28,7 +28,7 @@ export default function Category({ id, title, className }) {
             </div>
             <div className="selection-box border-none">
                 <div className="resume-box">
-                    <div className="name-designation font-lora">
+                    <div className="font-lora">
                 
                     </div>
                 </div>
