@@ -94,6 +94,7 @@ export default function Home() {
                             handleTemplateClick={handleTemplateClick}
                             className={`fade-in ${fadeIn ? 'active' : ''}`}
                             toast={toast}
+                            setToast={setToast}
                         /> 
                     </>
                 ) : (

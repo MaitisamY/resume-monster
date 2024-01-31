@@ -6,7 +6,7 @@ import './category.css'
 import CATEGORY_DETAILS from '../data/CATEGORY-DETAILS'
 import Tips from './Tips'
 
-export default function Category({ id, toast, className }) {
+export default function Category({ id, toast, setToast, className }) {
     const DETAILS = CATEGORY_DETAILS.find((detail) => detail.id === id);
 
     return (
@@ -56,7 +56,7 @@ export default function Category({ id, toast, className }) {
             <div className="selection-box border-none">
                 <div className="resume-box">
                     <div className="font-lora">
-                        <h1>By examining these aspects, you should be able to identify the source of the issue. If the problem persists, please share the relevant parts of your code where DETAILS is defined and any other related details.</h1>
+                        <h1></h1>
                     </div>
                 </div>
             </div>
