@@ -2,21 +2,28 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
+import { BsXLg } from 'react-icons/bs'
 import './category.css'
 import CATEGORY_DETAILS from '../data/CATEGORY-DETAILS'
 import Tips from './Tips'
 
-export default function Category({ id, toast, setToast, className }) {
+export default function Category({ id, toast, handleToast, isToast, handleIsToast, className }) {
     const DETAILS = CATEGORY_DETAILS.find((detail) => detail.id === id);
 
     return (
         <>
         {
+            isToast ? null : (
             toast &&
             <div className="toast">
+                <button className="close" onClick={handleToast}><BsXLg /></button>
                 <p>These are the complete instructions to get started and to build your resume.</p>
-                <button className="close" onClick={() => setToast(false)}>X</button>
+                <div className="mt-20">
+                    <input type="checkbox" checked={!isToast} onChange={handleIsToast} />
+                    <label>{`Don't show again`}</label>
+                </div>
             </div>
+            )
         }
         <div className={`single-category-view ${className}`}>
             <div className="detail-box">

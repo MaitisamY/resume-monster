@@ -232,57 +232,6 @@ main h2 .brand-2 {
     font-family: 'Work Sans', sans-serif;
 }
 
-.toast {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 20px;
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(1.5px);
-    color: #fff;
-    border-radius: 10px;
-    padding: 1rem;
-    border: none;
-    transition: all 0.5s ease-in-out;
-    width: 15%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    place-items: center;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    position: fixed;
-    top: 40%;
-    left: 30%;
-
-}
-
-.toast::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -20px; /* Adjust this value to control the pointy shape's size */
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 20px 10px 0; /* Adjust this value to control the pointy shape's size */
-    border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent; /* Match the background color of the toast */
-}
-
-.toast .close {
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(0, 0, 0, 0.2);
-    font-size: 20px;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 50px;
-}
-
 footer {
     width: 100%;
     height: auto;

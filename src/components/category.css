@@ -14,6 +14,7 @@
     /* position: sticky;
     -webkit-position: sticky;
     top: -10px; */
+    position: relative;
     width: 25%;
     height: auto;
     padding: 1rem 0;
@@ -33,6 +34,74 @@
         display: none;
     }
     
+}
+
+.toast {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    background: linear-gradient(90deg, rgba(46, 100, 255, 0.25) 0%, rgba(192, 37, 255, 0.25) 100%); ;
+    backdrop-filter: blur(1.5px);
+    color: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    border: none;
+    transition: all 0.5s ease-in-out;
+    width: 15%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    position: fixed;
+    top: 40%;
+    left: 29%;
+    z-index: 100;
+}
+
+.toast::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px; /* Adjust this value to control the pointy shape's size */
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 20px 10px 0; /* Adjust this value to control the pointy shape's size */
+    border-color: transparent rgba(46, 100, 255, 0.25) transparent transparent; /* Match the background color of the toast */
+}
+
+.toast .close {
+    color: #C026FF;
+    border: none;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    cursor: pointer;
+    padding: 5px 5px 0 5px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+}
+
+.toast .dont-show {
+    margin: 20px 0 0 10px;
+}
+
+.toast label {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    padding: 20px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+    text-align: center;
+    width: 100%;
 }
 
 .detail-box h3 {

@@ -2,30 +2,26 @@
 import { useState, useEffect } from "react";
 import CATEGORIES from "../data/CATEGORIES";
 import Category from "./Category";
-import Classic from "./classic/Classic";
-import Contemporary from "./contemporary/Contemporary";
-import Minimalist from "./minimalist/Minimalist";
-import Modern from "./modern/Modern";
-import Professional from "./professional/Professional";
-import Standard from "./standard/Standard";
-import Stylish from "./stylish/Stylish";
-import Technical from "./technical/Technical";
 
 export default function Home() {
     const [resumeCategories, setResumeCategories] = useState(CATEGORIES);
     const [resumeTemplate, setResumeTemplate] = useState(null);
     const [fadeIn, setFadeIn] = useState(false);
-    const [toast, setToast] = useState(false);
+    const [toast, setToast] = useState(true);
+    const [isToast, setIsToast] = useState(false);
     let otherCategories;
 
     const getStarted = (id) => {
         setFadeIn(false); // Reset fade-in state
         setTimeout(() => {
             if (id === 0) {
-                // If going back to home, remove the stored category from local storage
+                // If going back to home, remove all the local stored items
                 localStorage.removeItem('selectedCategory');
+                localStorage.removeItem('toast');
                 setResumeCategories(CATEGORIES);
             } else {
+                localStorage.setItem('toast', JSON.stringify(toast));
+                localStorage.setItem('isToast', JSON.stringify(isToast));
                 const selectedCategory = CATEGORIES.find(category => category.id === id);
                 if (selectedCategory) {
                     // Store the selected category in local storage
@@ -51,17 +47,38 @@ export default function Home() {
         }, 500);
     }
 
+    const handleIsToast = () => {
+        setIsToast(true);
+        localStorage.setItem('isToast', JSON.stringify(isToast));
+    }
+
+    const handleToast = () => {
+        setToast(false);
+        localStorage.setItem('toast', JSON.stringify(toast));
+    }
+
     useEffect(() => {
         const storedCategory = localStorage.getItem('selectedCategory');
+        const storedIsToast = localStorage.getItem('isToast');
+        const storedToast = localStorage.getItem('toast');
+        if (storedToast) {
+            const parsedToast = JSON.parse(storedToast);
+            setToast(parsedToast);
+        }
+        if (storedIsToast) {
+            const parsedIsToast = JSON.parse(storedIsToast);
+            setIsToast(parsedIsToast);
+        }
         if (storedCategory) {
             const parsedCategory = JSON.parse(storedCategory);
             setResumeCategories([parsedCategory]);
         }
         setFadeIn(true);
-    }, []);
+    }, [toast, isToast]);
 
     
     // localStorage.removeItem('selectedCategory');
+    // localStorage.removeItem('toast');
 
     return (
         <>
@@ -94,7 +111,9 @@ export default function Home() {
                             handleTemplateClick={handleTemplateClick}
                             className={`fade-in ${fadeIn ? 'active' : ''}`}
                             toast={toast}
-                            setToast={setToast}
+                            handleToast={handleToast}
+                            isToast={isToast}
+                            handleIsToast={handleIsToast}
                         /> 
                     </>
                 ) : (
