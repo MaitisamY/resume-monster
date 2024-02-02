@@ -1,272 +1,51 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react'
-import { BsXLg, BsTypeBold, BsTypeItalic, BsListUl, BsTypeUnderline, BsTrash, BsTypeH1, BsPlus } from 'react-icons/bs'
+import { useState } from 'react'
+import { 
+    BsXLg, 
+    BsTypeBold, 
+    BsTypeItalic, 
+    BsListUl, 
+    BsTypeUnderline, 
+    BsTrash, 
+    BsTypeH1, 
+    BsPlusCircle,
+    BsDashCircle 
+} from 'react-icons/bs'
 import './category.css'
 import CATEGORY_DETAILS from '../data/CATEGORY-DETAILS'
 import Tips from './Tips'
+import ValidateAndSubmit from './category-functions/ValidateAndSubmit'
+import Education from './sub-components/Education'
 
-export default function Category({ id, toast, handleToast, handleDoNotShowAgain, className }) {
+export default function Category({ 
+    id, 
+    toast, 
+    handleToast, 
+    handleDoNotShowAgain, 
+    className 
+}) {
     const DETAILS = CATEGORY_DETAILS.find((detail) => detail.id === id);
 
     const [showTips, setShowTips] = useState(null);
-
     const handleShowTips = (name) => {
         setShowTips(name);
     }
 
-    const [errorResponses, setErrorResponses] = useState({
-        firstName: '',
-        lastName: '',
-        designation: '',
-        email: '',
-        phoneNumber: '',
-        address: '',
-        summary: '',
-    });
-
-    const [resumeCredentials, setResumeCredentials] = useState({
-        firstName: '',
-        lastName: '',
-        designation: '',
-        email: '',
-        phoneNumber: '',
-        address: '',
-        summary: '',
-    });
-
-    const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const isNumeric = (value) => /^[0-9]+$/.test(value) && !/\s/.test(value) && !/[A-Za-z]/.test(value) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-    const handleResumeCredentials = (e) => {
-        const { name, value } = e.target;
-        setResumeCredentials((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
-
-    const validateField = (name, value) => {
-        const errors = { ...errorResponses };
-    
-        switch (name) {
-          case 'firstName':
-            if (value.trim() === '') {
-              errors.firstName = 'First name is required';
-            } else if (value.length < 3 || value.length > 25) {
-              errors.firstName = 'Between 3 and 25 characters';
-            } else {
-              errors.firstName = '';
-            }
-            break;
-          case 'lastName':
-            if (value.trim() === '') {
-              errors.lastName = 'Last name is required';
-            } else if (value.length < 3 || value.length > 25) {
-              errors.lastName = 'Between 3 and 25 characters';
-            } else {
-              errors.lastName = '';
-            }
-            break;
-          case 'designation':
-            if (value.trim() === '') {
-              errors.designation = 'Designation is required';
-            } else if (value.length < 6 || value.length > 30) {
-              errors.designation = 'Between 6 and 30 characters';
-            } else {
-              errors.designation = '';
-            }
-            break;
-          case 'email':
-            if (value.trim() === '') {
-              errors.email = 'Email is required';
-            } else if (!isEmailValid(value)) {
-                errors.email = 'Invalid email format';
-            } else if (value.length < 6 || value.length > 50) {
-              errors.email = 'Between 6 and 50 characters';
-            } else {
-              errors.email = '';
-            }
-            break;
-          case 'phoneNumber':
-            if (value.trim() === '') {
-              errors.phoneNumber = 'Phone number is required';
-            } else if (!isNumeric(value)) {
-                errors.phoneNumber = 'Invalid phone number format';
-            } else if (value.length < 11 || value.length > 14) {
-              errors.phoneNumber = 'Between 11 and 14 characters';
-            } else {
-              errors.phoneNumber = '';
-            }
-            break;
-          case 'address':
-            if (value.trim() === '') {
-              errors.address = 'Address is required';
-            } else if (value.length < 10 || value.length > 50) {
-              errors.address = 'Between 10 and 50 characters';
-            } else {
-              errors.address = '';
-            }
-            break;
-          case 'summary':
-            if (value.trim() === '') {
-              errors.summary = 'Summary is required';
-            } else if (value.length < 100 || value.length > 350) {
-              errors.summary = 'Between 100 and 350 characters';
-            } else {
-              errors.summary = '';
-            }
-            break;
-          default:
-            break;
-        }
-    
-        setErrorResponses((prevState) => ({
-          ...prevState,
-          [name]: errors[name] || '',
-        }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    
-        // Validation logic
-        const errors = {};
-    
-        // Validate firstName
-        if (resumeCredentials.firstName.trim() === '') {
-            errors.firstName = 'First name is required';
-        } else if (resumeCredentials.firstName.length < 3 || resumeCredentials.firstName.length > 25) {
-            errors.firstName = 'Between 3 and 25 characters';
-        }
-    
-        // Validate lastName
-        if (resumeCredentials.lastName.trim() === '') {
-            errors.lastName = 'Last name is required';
-        } else if (resumeCredentials.lastName.length < 3 || resumeCredentials.lastName.length > 25) {
-            errors.lastName = 'Between 3 and 25 characters';
-        }
-
-        // Validate designation
-        if (resumeCredentials.designation.trim() === '') {
-            errors.designation = 'Designation is required';
-        } else if (resumeCredentials.designation.length < 6 || resumeCredentials.designation.length > 30) {
-            errors.designation = 'Between 6 and 30 characters';
-        }
-    
-        // Validate email
-        if (resumeCredentials.email.trim() === '') {
-            errors.email = 'Email is required';
-        } else if (!isEmailValid(resumeCredentials.email)) {
-            errors.email = 'Invalid email format';
-        } else if (resumeCredentials.email.length < 6 || resumeCredentials.email.length > 50) {
-            errors.email = 'Between 6 and 50 characters';
-        }
-
-        // Validate phoneNumber
-        if (resumeCredentials.phoneNumber.trim() === '') {
-            errors.phoneNumber = 'Phone number is required';
-        } else if (!isNumeric(resumeCredentials.phoneNumber)) {
-            errors.phoneNumber = 'Invalid phone number format';
-        } else if (resumeCredentials.phoneNumber.length < 11 || resumeCredentials.phoneNumber.length > 14) {
-            errors.phoneNumber = 'Between 11 and 14 digits';
-        }
-
-        // Validate address
-        if (resumeCredentials.address.trim() === '') {
-            errors.address = 'Address is required';
-        } else if (resumeCredentials.address.length >= 10 || resumeCredentials.address.length <= 50) {
-            errors.address = 'Between 10 and 50 characters';
-        }
-
-        // Validate summary
-        if (resumeCredentials.summary.trim() === '') {
-            errors.summary = 'Summary is required';
-        } else if (resumeCredentials.summary.length < 100 || resumeCredentials.summary.length > 350) {
-            errors.summary = 'Between 100 and 350 characters';
-        }
-    
-        // Updating errorResponses state
-        setErrorResponses(errors);
-    
-        // If there are no errors, proceed with the form submission logic
-        if (Object.keys(errors).length === 0) {
-            // Perform your form submission logic here
-            console.log('Form submitted successfully!');
-        } else {
-            console.log('Form submission failed due to validation errors.');
-        }
-    };
-
-    
-        const [cards, setCards] = useState([
-          { id: 1, content: '' },
-        ]);
-      
-        const handleCardChange = (id, content) => {
-          setCards((prevCards) =>
-            prevCards.map((card) =>
-              card.id === id ? { ...card, content } : card
-            )
-          );
-        };
-      
-        const addCard = () => {
-          setCards((prevCards) => [
-            ...prevCards,
-            { id: prevCards.length + 1, content: '' },
-          ]);
-        };
-      
-        const deleteCard = (id) => {
-          setCards((prevCards) => prevCards.filter((card) => card.id !== id));
-        };
-
-        const handleFormatting = (formatType) => {
-            document.execCommand(formatType, false, null);
-        };
-
-        const [experienceSections, setExperienceSections] = useState([
-            {
-              id: 1,
-              experienceDesignation: '',
-              experienceCompany: '',
-              experienceDuration: '',
-              experienceFrom: '',
-              experienceTo: '',
-              experienceContent: '',
-            },
-          ]);
-        
-          const handleExperienceChange = (id, key, value) => {
-            setExperienceSections((prevSections) =>
-              prevSections.map((section) =>
-                section.id === id ? { ...section, [key]: value } : section
-              )
-            );
-          };
-        
-          const addExperienceSection = () => {
-            setExperienceSections((prevSections) => [
-              ...prevSections,
-              {
-                id: prevSections.length + 1,
-                experienceDesignation: '',
-                experienceCompany: '',
-                experienceDuration: '',
-                experienceFrom: '',
-                experienceTo: '',
-                experienceContent: '',
-              },
-            ]);
-          };
-        
-          const deleteExperienceSection = (id) => {
-            setExperienceSections((prevSections) =>
-              prevSections.filter((section) => section.id !== id)
-            );
-          };
+    const {
+        errorResponses, 
+        resumeCredentials, 
+        experienceSections,
+        validateField,
+        validateExperienceField,
+        handleResumeCredentials, 
+        handleSubmit,
+        handleExperienceChange,
+        addExperienceSection,
+        deleteExperienceSection,
+        handleFormatting,
+    } = ValidateAndSubmit();
 
     return (
         <>
@@ -397,7 +176,7 @@ export default function Category({ id, toast, handleToast, handleDoNotShowAgain,
                                     value={resumeCredentials.phoneNumber}
                                     className="font-work-sans" 
                                     type="tel" 
-                                    placeholder="E.g. +91 9876543210" 
+                                    placeholder="E.g. +923109234567" 
                                     onChange={handleResumeCredentials}
                                     onBlur={(e) => validateField(e.target.name, e.target.value)}
                                     onFocus={(e) => handleShowTips(e.target.name)}
@@ -457,23 +236,40 @@ export default function Category({ id, toast, handleToast, handleDoNotShowAgain,
                             </div> 
                         </div>
                         {experienceSections.map((section) => (
-                        <div key={section.id}>    
+                        <div key={section.id} 
+                            className={
+                                experienceSections.length > 1 ? 
+                                'border border-radius-10 border-dull mb-15 smooth-transition' : ''
+                            }
+                        >    
+                        {experienceSections.length > 1 && (
+                            <div className="row">
+                                <div className="input-group">
+                                <button className="add-remove-sections negative ml-10" type="button" onClick={deleteExperienceSection}>
+                                    <BsDashCircle size={20} /> Remove This Section
+                                </button>
+                                </div>
+                            </div>
+                        )}
                         <div className="row">
                             <div className="input-group">
                                 <label className="font-work-sans">Designation</label>
                                 <input
                                     name={`experienceDesignation_${section.id}`}
-                                    value={section.designation}
+                                    value={section.experienceDesignation}
                                     className="font-work-sans"
                                     type="text"
                                     placeholder="E.g. Web Developer"
                                     onChange={(e) => handleExperienceChange(section.id, 'experienceDesignation', e.target.value)}
-                                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                                    onBlur={(e) => validateExperienceField(section.id, 'experienceDesignation', e.target.value)}
                                     onFocus={(e) => handleShowTips(e.target.name)}
                                     onMouseEnter={(e) => handleShowTips(e.target.name)}
                                     onMouseLeave={() => handleShowTips(null)}
                                     onMouseOut={() => handleShowTips(null)}
                                 />
+                                {section.errors.experienceDesignation &&
+                                    <p className="text-danger pl-20">{section.errors.experienceDesignation}</p>
+                                }
                             </div>
                             <div className="input-group">
                                 <label className="font-work-sans">Company</label>
@@ -484,12 +280,15 @@ export default function Category({ id, toast, handleToast, handleDoNotShowAgain,
                                     type="text"
                                     placeholder="E.g. Microsoft"
                                     onChange={(e) => handleExperienceChange(section.id, 'experienceCompany', e.target.value)}
-                                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                                    onBlur={(e) => validateExperienceField(section.id, 'experienceCompany', e.target.value)}
                                     onFocus={(e) => handleShowTips(e.target.name)}
                                     onMouseEnter={(e) => handleShowTips(e.target.name)}
                                     onMouseLeave={() => handleShowTips(null)}
                                     onMouseOut={() => handleShowTips(null)}
                                 />
+                                {section.errors.experienceCompany &&
+                                    <p className="text-danger pl-20">{section.errors.experienceCompany}</p>
+                                }
                             </div>
                         </div>    
                         <div className="row">
@@ -497,12 +296,12 @@ export default function Category({ id, toast, handleToast, handleDoNotShowAgain,
                                 <label className="font-work-sans">Duration</label>
                                 <input
                                     name={`experienceDuration_${section.id}`}
-                                    value={section.duration}
+                                    value={section.experienceDuration}
                                     className="font-work-sans"
-                                    type="number"
+                                    type="text"
                                     placeholder="E.g. 3 years"
                                     onChange={(e) => handleExperienceChange(section.id, 'experienceDuration', e.target.value)}
-                                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                                    onBlur={(e) => validateExperienceField(section.id, 'experienceDuration', e.target.value)}
                                     onFocus={(e) => handleShowTips(e.target.name)}
                                     onMouseEnter={(e) => handleShowTips(e.target.name)}
                                     onMouseLeave={() => handleShowTips(null)}
@@ -518,7 +317,6 @@ export default function Category({ id, toast, handleToast, handleDoNotShowAgain,
                                     type="date"
                                     placeholder="E.g. 10/12/2019"
                                     onChange={(e) => handleExperienceChange(section.id, 'experienceFrom', e.target.value)}
-                                    onBlur={(e) => validateField(e.target.name, e.target.value)}
                                     onFocus={(e) => handleShowTips(e.target.name)}
                                     onMouseEnter={(e) => handleShowTips(e.target.name)}
                                     onMouseLeave={() => handleShowTips(null)}
@@ -534,7 +332,6 @@ export default function Category({ id, toast, handleToast, handleDoNotShowAgain,
                                     type="date"
                                     placeholder="E.g. 10/12/2022"
                                     onChange={(e) => handleExperienceChange(section.id, 'experienceTo', e.target.value)}
-                                    onBlur={(e) => validateField(e.target.name, e.target.value)}
                                     onFocus={(e) => handleShowTips(e.target.name)}
                                     onMouseEnter={(e) => handleShowTips(e.target.name)}
                                     onMouseLeave={() => handleShowTips(null)}
@@ -544,43 +341,46 @@ export default function Category({ id, toast, handleToast, handleDoNotShowAgain,
                         </div>
                         <div className="row">    
                             <div className="input-group">
-                            {cards.map((card) => (
-                                <div key={card.id} className="kanban-card border-dull">
-                                <div className="kanban-toolbar">
-                                    <button className="ml-10" type="button" onClick={() => handleFormatting('bold')}>
-                                        <BsTypeBold />
-                                    </button>
-                                    <button className="ml-10" type="button" onClick={() => handleFormatting('italic')}>
-                                        <BsTypeItalic />
-                                    </button>
-                                    <button className="ml-10" type="button" onClick={() => handleFormatting('underline')}>
-                                        <BsTypeUnderline />
-                                    </button>
-                                    <button className="ml-10" type="button" onClick={() => handleFormatting('insertOrderedList')}>
-                                        <BsListUl /> 
-                                    </button>
-                                    <button className="ml-10" type="button" onClick={() => handleFormatting('formatBlock')}>
-                                        <BsTypeH1 />
-                                    </button>
-                                </div>
-                                <h5 className="pt-10 pr-10 pb-10 pl-20">Write below <span>E.g. Responsibilies etc</span></h5>
-                                <div
-                                    contentEditable
-                                    className="kanban-card-content"
-                                    dangerouslySetInnerHTML={{ __html: card.content }}
-                                    onBlur={(e) => handleCardChange(card.id, e.target.innerHTML)}
-                                    onFocus={() => handleShowTips(e.target.name)}
-                                    onMouseEnter={(e) => handleShowTips('experienceCardContent')}
-                                    onMouseLeave={() => handleShowTips(null)}
-                                    onMouseOut={() => handleShowTips(null)}
-                                />
-                                {/* {
-                                    cards.length > 1 ? (
-                                        <button className="ml-10" type="button" onClick={() => deleteCard(card.id)}><BsTrash /></button>
-                                    ) : null
-                                } */}
-                                </div>
-                            ))} 
+                            <label className="font-work-sans">Details</label>
+                            <span>E.g. Responsibilies etc</span>
+                            {section.experienceDescription.map((card) => (
+                            <div key={card.id} className="kanban-card border-dull">
+                            <div className="kanban-toolbar">
+                                <button className="ml-10" type="button" onClick={() => handleFormatting('bold')}>
+                                <BsTypeBold />
+                                </button>
+                                <button className="ml-10" type="button" onClick={() => handleFormatting('italic')}>
+                                <BsTypeItalic />
+                                </button>
+                                <button className="ml-10" type="button" onClick={() => handleFormatting('underline')}>
+                                <BsTypeUnderline />
+                                </button>
+                                <button className="ml-10" type="button" onClick={() => handleFormatting('insertOrderedList')}>
+                                <BsListUl />
+                                </button>
+                                <button className="ml-10" type="button" onClick={() => handleFormatting('formatBlock')}>
+                                <BsTypeH1 />
+                                </button>
+                            </div>
+                            <div
+                                contentEditable
+                                className="kanban-card-content"
+                                dangerouslySetInnerHTML={{ __html: card.content }}
+                                onChange={(e) => handleExperienceChange(section.id, 'content', e.target.innerHTML, card.id)}
+                                onBlur={(e) => handleExperienceChange(section.id, 'content', e.target.innerHTML, card.id)}
+                                onFocus={() => handleShowTips('experienceDescription')}
+                                onMouseEnter={() => handleShowTips('experienceDescription')}
+                                onMouseLeave={() => handleShowTips(null)}
+                                onMouseOut={() => handleShowTips(null)}
+                                suppressContentEditableWarning
+                            />
+                            {/* {card.id !== 1 && (
+                                <button className="ml-10" type="button" onClick={() => deleteCard(section.id, card.id)}>
+                                    Delete Card
+                                </button>
+                            )} */}
+                            </div>
+                        ))} 
                             </div> 
                         </div>
                         </div>
@@ -592,15 +392,20 @@ export default function Category({ id, toast, handleToast, handleDoNotShowAgain,
                         </div> */}
                         <div className="row">
                             <div className="input-group">
-                            <button className="add-more-sections ml-10" type="button" onClick={addExperienceSection}>
-                                <BsPlus size={20} /> Add Another Experience Section
+                            <button className="add-remove-sections positive ml-10" type="button" onClick={addExperienceSection}>
+                                <BsPlusCircle size={20} /> Add Another Experience Section
                             </button>
                             </div>
-                        </div>           
+                        </div>
+                        <Education 
+                            handleShowTips={handleShowTips}
+                        />       
                     </form>
                 </div>
             </div>
-            <Tips title={showTips === null ? null : showTips} />
+            <div className="tips">
+                <Tips title={showTips === null ? null : showTips} />
+            </div>
         </div>
         </>
     );

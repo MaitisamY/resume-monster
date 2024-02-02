@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 export default function Tips({ title }) {
     return (
@@ -74,7 +75,7 @@ export default function Tips({ title }) {
                         <>
                             <h3>Designation</h3>
                             <ol className="text-white font-lora">
-                                <li>Your Designation or Position is must to enter.</li>
+                                <li>Your Designation or Position is optional.</li>
                                 <li>Designation should contain only alphabets e.g. Frontend Developer.</li>
                                 <li>Designation must be between 6 and 30 characters.</li>
                             </ol>
@@ -83,16 +84,16 @@ export default function Tips({ title }) {
                         <>
                             <h3>Company</h3>
                             <ol className="text-white font-lora">
-                                <li>The Company Name is must to enter.</li>
+                                <li>The Company Name is optional.</li>
                                 <li>Company Name can be alphanumeric.</li>
-                                <li>Company Name must be between 3 and 50 characters.</li>
+                                <li>Company Name must be between 6 and 30 characters.</li>
                             </ol>
                         </>
                     ) : title.includes('experienceDuration') ? (
                         <>
                             <h3>Duration</h3>
                             <ol className="text-white font-lora">
-                                <li>The Duration is must to enter.</li>
+                                <li>The Duration is optional.</li>
                                 <li>Duration can be alphanumeric.</li>
                                 <li>How long have you worked or have been working here.</li>
                             </ol>
@@ -101,7 +102,7 @@ export default function Tips({ title }) {
                         <>
                             <h3>From</h3>
                             <ol className="text-white font-lora">
-                                <li>From is optional.</li>
+                                <li>From date is optional.</li>
                                 <li>Select the date.</li>
                                 <li>When did the experience start?</li>
                             </ol>
@@ -110,18 +111,52 @@ export default function Tips({ title }) {
                         <>
                             <h3>To</h3>
                             <ol className="text-white font-lora">
-                                <li>From is optional.</li>
+                                <li>To date is optional.</li>
                                 <li>Select the date.</li>
                                 <li>When did the experience end?</li>
                             </ol>
                         </>
-                    ) : title.includes('experienceCardContent') ? (
+                    ) : title.includes('experienceDescription') ? (
                         <>
                             <h3>Details</h3>
                             <ol className="text-white font-lora">
                                 <li>Details are optional.</li>
                                 <li>You can add details of your experience.</li>
                                 <li>What were your responsibilities?</li>
+                            </ol>
+                        </>
+                    ) : title.includes('institution') ? (
+                        <>
+                            <h3>Institution</h3>
+                            <ol className="text-white font-lora">
+                                <li>Institution is must to enter.</li>
+                                <li>Institution can be alphanumeric.</li>
+                                <li>Institution must be between 6 and 30 characters.</li>
+                            </ol>
+                        </>
+                    ) : title.includes('degree') ? (
+                        <>
+                            <h3>Degree</h3>
+                            <ol className="text-white font-lora">
+                                <li>Degree is must to enter.</li>
+                                <li>Degree can be alphanumeric.</li>
+                                <li>Degree must be between 6 and 30 characters.</li>
+                            </ol>
+                        </>
+                    ) : title.includes('startYear') ? (
+                        <>
+                            <h3>Start Year</h3>
+                            <ol className="text-white font-lora">
+                                <li>Start Year is optional.</li>
+                                <li>When did you start your degree / course?</li>
+                            </ol>
+                        </>
+                    ) : title.includes('endYear') ? (
+                        <>
+                            <h3>End Year</h3>
+                            <ol className="text-white font-lora">
+                                <li>End Year is optional.</li>
+                                <li>When did you end your degree / course?</li>
                             </ol>
                         </>
                     ) : null

@@ -1,5 +1,9 @@
 /* src/dev-defined.css */
 
+.smooth-transition {
+    transition: all 0.2s ease-in-out;
+}
+
 .font-work-sans {
     font-family: 'Work Sans', sans-serif;
 }
@@ -277,6 +281,50 @@
 
 .hover-shade-black:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.border-radius-5 {
+    border-radius: 5px;
+}
+
+.border-radius-10 {
+    border-radius: 10px;
+}
+
+.border-radius-15 {
+    border-radius: 15px;
+}
+
+.border-radius-20 {
+    border-radius: 20px;
+}
+
+.border-radius-25 {
+    border-radius: 25px;
+}
+
+.border-radius-30 {
+    border-radius: 30px;
+}
+
+.border-radius-35 {
+    border-radius: 35px;
+}
+
+.border-radius-40 {
+    border-radius: 40px;
+}
+
+.border-radius-45 {
+    border-radius: 45px;
+}
+
+.border-radius-50 {
+    border-radius: 50px;
+}
+
+.border-radius-100 {
+    border-radius: 100px;
 }
 
 .bg-none {
@@ -1040,7 +1088,7 @@
     height: auto;
     gap: 20px;
     padding: 10px 10px;
-    margin: 15px 15px 30px 0;
+    margin: 15px 15px 15px 0;
     box-sizing: border-box;
 }
 
