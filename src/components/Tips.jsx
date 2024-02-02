@@ -159,6 +159,15 @@ export default function Tips({ title }) {
                                 <li>When did you end your degree / course?</li>
                             </ol>
                         </>
+                    ) : title.includes('skill') ? (
+                        <>
+                            <h3>Skills</h3>
+                            <ol className="text-white font-lora">
+                                <li>Skills are optional.</li>
+                                <li>What skills do you have?</li>
+                                <li>Showcase your skills so that recruiters can easily know what you bring to the table.</li>
+                            </ol>
+                        </>
                     ) : null
                 }
             </div>

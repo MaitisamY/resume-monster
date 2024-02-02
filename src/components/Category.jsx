@@ -10,6 +10,7 @@ import ValidateAndSubmit from './category-functions/ValidateAndSubmit'
 import Education from './sub-components/Education'
 import Experience from './sub-components/Experience'
 import Credentials from './sub-components/Credentials'
+import Skills from './sub-components/Skills'
 
 export default function Category({ 
     id, 
@@ -94,7 +95,13 @@ export default function Category({
                         </div>
                         <Education 
                             handleShowTips={handleShowTips}
-                        />       
+                        /> 
+                        <div className="row">
+                            <span className="separator"></span>
+                        </div>
+                        <Skills
+                            handleShowTips={handleShowTips}
+                        />      
                     </form>
                 </div>
             </div>
