@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import { useState, useEffect } from "react";
 import CATEGORIES from "../data/CATEGORIES";
 
@@ -25,7 +27,7 @@ export default function Functions() {
                 }
             }
             setFadeIn(true); // Trigger fade-in effect after a short delay
-            setToast(true);
+            setToastVisible(true);
         }, 500);
     };
 

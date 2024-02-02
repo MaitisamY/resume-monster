@@ -237,6 +237,7 @@
     height: 3px;
     background-color: rgba(255, 255, 255, 0.1);
     margin: 30px 0 0 0;
+    border-radius: 50px;
 }
 
 .resume-box form label {
@@ -303,6 +304,14 @@
     text-align: left;
 }
 
+.resume-box form h6 {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.1);
+    place-self: end;
+}
+
 .resume-box form span {
     color: #e0dede;
     font-size: 13px;
@@ -360,6 +369,30 @@
     margin-right: 5px;
 }
 
+.remove-detail-point {
+    border: none;
+    background-color: transparent;
+    font-family: 'Work Sans', sans-serif;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 5px 0 7px;
+    border-radius: 50px;
+    border-radius: 10px;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: row;
+}
+
+.remove-detail-point:hover {
+    color:rgba(255, 255, 255, 0.7);
+}
+
 .add-remove-sections {
     border: none;
     background-color: transparent;
@@ -396,7 +429,7 @@
 
 .tips {
     position: sticky;
-    top: 10px;
+    top: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -419,7 +452,6 @@
     border: none;
     transition: all 0.5s ease-in-out;
     background: linear-gradient(90deg, rgba(46, 100, 255, 0.25) 0%, rgba(192, 37, 255, 0.25) 100%); ;
-    backdrop-filter: blur(1.5px);
     margin-top: 10%;
 }
 

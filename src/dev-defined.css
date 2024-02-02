@@ -85,6 +85,18 @@
     -webkit-text-fill-color: transparent;
 }
 
+.place-left {
+    place-self: start;
+}
+
+.place-right {
+    place-self: end;
+}
+
+.place-center {
+    place-self: center;
+}
+
 .text-nowrap {
     white-space: nowrap;
 }

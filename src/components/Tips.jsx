@@ -116,7 +116,7 @@ export default function Tips({ title }) {
                                 <li>When did the experience end?</li>
                             </ol>
                         </>
-                    ) : title.includes('experienceDescription') ? (
+                    ) : title.includes('content') ? (
                         <>
                             <h3>Details</h3>
                             <ol className="text-white font-lora">
@@ -162,12 +162,8 @@ export default function Tips({ title }) {
                     ) : null
                 }
             </div>
-        ) : (
-            <div className="tip-box">
-                <h3>Personalized Tips</h3>
-                <p>We have got some tips related to the form filling for you that you can use to get your resume perfect.</p>
-            </div>
-        )}  
+        ) : null
+        }  
         </>
     );    
 }
