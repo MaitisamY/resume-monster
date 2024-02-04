@@ -32,15 +32,13 @@ export default function Skills({ handleShowTips }) {
         setSkills(newSkills)
     }
 
-    const handleChange = (id, event) => {
-        const newSkills = skills.map((skill) => {
-            if (skill.id === id) {
-                skill.skill = event.target.value
-            }
-            return skill
-        })
-        setSkills(newSkills)
-    }
+    const handleChange = (id, value) => {
+        setSkills((prevSkills) =>
+          prevSkills.map((skill) =>
+            skill.id === id ? { ...skill, skill: value } : skill
+          )
+        );
+    };
 
     const validateField = (name, value) => {
         switch (name) {
@@ -82,24 +80,22 @@ export default function Skills({ handleShowTips }) {
             <div className="row">
                 <ol className="w-100 pl-20">
                     <li key={skill.id} value={index + 1} className="text-white">
-                        <input
-                            name={`skill_${skill.id}`}
-                            value={skill.skill}
-                            className="font-work-sans"
-                            type="text"
-                            placeholder="E.g. Time Management."
-                            onBlur={(e) => validateSkillsSection(skill.id, `skill_${skill.id}`, e.target.value)}
-                            onChange={(e) => validateSkillsSection(skill.id, `skill_${skill.id}`, e.target.value)}
-                            onFocus={(e) => handleShowTips(e.target.name)}
-                            onMouseEnter={(e) => handleShowTips(e.target.name)}
-                            onMouseLeave={() => handleShowTips(null)}
-                            onMouseOut={() => handleShowTips(null)}
-                        />
-                        {
-                            skill.errors.skill && (
-                                <p className="text-danger">{skill.errors.skill}</p>
-                            )
-                        }
+                    <input
+                        name={`skill_${skill.id}`}
+                        value={skill.skill}
+                        className="font-work-sans"
+                        type="text"
+                        placeholder="E.g. Time Management."
+                        onBlur={(e) => validateSkillsSection(skill.id, `skill_${skill.id}`, e.target.value)}
+                        onChange={(e) => handleChange(skill.id, e.target.value)}
+                        onFocus={(e) => handleShowTips(e.target.name)}
+                        onMouseEnter={(e) => handleShowTips(e.target.name)}
+                        onMouseLeave={() => handleShowTips(null)}
+                        onMouseOut={() => handleShowTips(null)}
+                    />
+                    {skill.errors && (
+                        <p className="text-danger">{skill.errors.skill}</p>
+                    )}
                     </li>
                 </ol>
                 {skill.id !== 1 && (

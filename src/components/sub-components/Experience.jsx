@@ -173,7 +173,6 @@ export default function Experience({ handleShowTips }) {
         });
     };
       
-
     const handleFormatting = (formatType) => {
         document.execCommand(formatType, false, null);
     };
@@ -305,6 +304,10 @@ export default function Experience({ handleShowTips }) {
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. 2019"
+                        min={2}
+                        max={4}
+                        minLength={2}
+                        maxLength={4}
                         onBlur={(e) => validateExperienceField(section.id, 'experienceFrom', e.target.value)}
                         onChange={(e) => handleExperienceChange(section.id, 'experienceFrom', e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
@@ -324,6 +327,10 @@ export default function Experience({ handleShowTips }) {
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. 2022"
+                        min={2}
+                        max={4}
+                        minLength={2}
+                        maxLength={4}
                         onBlur={(e) => validateExperienceField(section.id, 'experienceTo', e.target.value)}
                         onChange={(e) => handleExperienceChange(section.id, 'experienceTo', e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}

@@ -229,6 +229,10 @@ export default function Education({ handleShowTips }) {
                     className="font-work-sans"
                     type="text"
                     placeholder="E.g. 2022"
+                    min={2}
+                    max={4}
+                    minLength={2}
+                    maxLength={4}
                     onChange={(e) => handleEducationChange(section.id, 'endYear', e.target.value)}
                     onBlur={(e) => validateEducationField(section.id, 'endYear', e.target.value)}
                     onFocus={(e) => handleShowTips(e.target.name)}
@@ -255,6 +259,5 @@ export default function Education({ handleShowTips }) {
               </div>
           </div>
         </>
-    );
-      
+    ); 
 }

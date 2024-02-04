@@ -8,8 +8,6 @@ export default function Home() {
         fadeIn,
         toastVisible,
         getStarted,
-        handleTemplateClick,
-        handleTemplateClose,
         handleToast,
         handleDoNotShowAgain,
     } = Functions();
@@ -30,9 +28,9 @@ export default function Home() {
                     <>
                     <h2><span className="brand-2">Resume Monster</span></h2>
                     <div>
-                        <button className="home-btn cursor-pointer border-none px-30 py-5 bg-white hover-bg-dull hover-shade-black" 
+                        <button className="home-btn cursor-pointer pr-15 pl-15 py-5 text-white" 
                             onClick={() => getStarted(0)}> 
-                            &larr; HOME 
+                            &larr; Home 
                         </button>
                             &nbsp;
                         <span className="breadcrumb"> /  
@@ -46,7 +44,6 @@ export default function Home() {
                             id={resumeCategories[0].id} 
                             title={resumeCategories[0].title}
                             getStarted={getStarted}
-                            handleTemplateClick={handleTemplateClick}
                             className={`fade-in ${fadeIn ? 'active' : ''}`}
                             toast={toastVisible}
                             handleDoNotShowAgain={handleDoNotShowAgain}
@@ -57,7 +54,7 @@ export default function Home() {
                     <>
                     <h2>Welcome to <span className="brand">Resume Monster</span>, Select a category to get started</h2>
                     <div className="category-selector">
-                        {resumeCategories.map((category) => (
+                        {/* {resumeCategories.map((category) => (
                         <div
                             key={category.id}
                             className={`category 
@@ -78,7 +75,20 @@ export default function Home() {
                             Get Started
                             </button>
                         </div>
-                        ))}
+                        ))} */}
+                        <div className="category border-blue-shaded hover-shade-blue">
+                            <h3 className="border-bottom-blue-shaded">
+                                Start Building
+                            </h3>
+                            <p>We have 8 categories of resume to choose from, but right now only one is functional.</p>
+                            <p>Development is in progress, soon we will add more categories.</p>
+                            <button
+                            className={`bg-none border-white cursor-pointer text-white px-30 py-10 
+                            font-work-sans hover-bg-blue hover-border-blue`}
+                            onClick={() => getStarted(resumeCategories[0].id)}>
+                            Get Started
+                            </button>
+                        </div>
                     </div>
                     </>
                 )}

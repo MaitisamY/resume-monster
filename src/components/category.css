@@ -182,13 +182,12 @@
 .selection-box {
     width: 55%;
     height: auto;
-    padding: 1rem 0;
+    padding: 0.5rem 0 1rem 0;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid;
     transition: all 0.5s ease-in-out;
 }
 
@@ -212,7 +211,7 @@
 .resume-box {
     width: 100%;
     height: auto;
-    padding: 1.5rem 1rem;
+    padding: 0 1rem 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -225,7 +224,7 @@
 .resume-box form {
     width: 100%;
     height: auto;
-    padding: 1rem 0;
+    padding: 0 0 1rem 0;
     border-radius: 10px;
     border: none;
     transition: all 0.5s ease-in-out;
@@ -233,8 +232,8 @@
 }
 
 .resume-box form .separator {
-    width: 50%;
-    height: 3px;
+    width: 25%;
+    height: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     margin: 30px 0 0 0;
     border-radius: 50px;
@@ -244,7 +243,7 @@
     font-size: 18px;
     font-weight: 300;
     margin: 0;
-    padding: 20px 0 5px 20px;
+    padding: 10px 0 5px 20px;
     font-family: 'Work Sans', sans-serif;
     color: #fff;
     text-align: left;
@@ -508,6 +507,33 @@
     border-width: 10px 20px 10px 0; 
     border-color: transparent rgba(46, 100, 255, 0.25) transparent transparent; 
 } */
+
+@media screen and (max-width: 992px) {
+    .detail-box {
+        display: none;
+    } 
+    .tip-box {
+        display: none;
+    }
+}
+
+.build-btn {
+    padding: 10px 50px;
+    margin: 50px 0 25px 0;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: rgba(46, 100, 255, 1);
+    box-shadow: 0 0 2px rgba(46, 100, 255, 1);
+    outline: 1px solid rgba(46, 100, 255, 1);
+}
+
+.build-btn:hover {
+    box-shadow: 0 0 2px rgba(46, 100, 255, 1);
+    outline: 2px solid rgba(46, 100, 255, 1);
+    background-color: #242323;
+}
 
 
 

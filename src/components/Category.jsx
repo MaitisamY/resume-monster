@@ -11,6 +11,7 @@ import Education from './sub-components/Education'
 import Experience from './sub-components/Experience'
 import Credentials from './sub-components/Credentials'
 import Skills from './sub-components/Skills'
+import Certification from './sub-components/Certification'
 
 export default function Category({ 
     id, 
@@ -78,7 +79,7 @@ export default function Category({
                 </ul>
                 <p>{DETAILS.ending}</p>   
             </div>
-            <div className="selection-box border-none">
+            <div className="selection-box">
                 <div className="resume-box font-work-sans">
                     <form onSubmit={handleSubmit}>
                         <Credentials 
@@ -101,7 +102,23 @@ export default function Category({
                         </div>
                         <Skills
                             handleShowTips={handleShowTips}
-                        />      
+                        />
+                        <div className="row">
+                            <span className="separator"></span>
+                        </div>
+                        <Certification
+                            handleShowTips={handleShowTips}
+                        />   
+                        <div className="row">
+                            <div className="input-group">
+                                <button 
+                                    className="build-btn cursor-pointer smooth-transition font-work-sans" 
+                                    type="submit"
+                                >
+                                    Build
+                                </button>
+                            </div>
+                        </div>  
                     </form>
                 </div>
             </div>

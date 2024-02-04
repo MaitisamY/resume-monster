@@ -31,19 +31,6 @@ export default function Functions() {
         }, 500);
     };
 
-    const handleTemplateClick = (id) => {
-        setResumeTemplate(id);
-    }
-
-    const handleTemplateClose = (id) => {
-        setFadeIn(false); 
-        setTimeout(() => {
-            setResumeTemplate(null);
-            getStarted(id);
-            setFadeIn(true); 
-        }, 500);
-    }
-
     const handleToast = () => { 
         const toastElement = document.getElementById('toast');
 
@@ -93,9 +80,7 @@ export default function Functions() {
         resumeCategories, 
         fadeIn, 
         toastVisible, 
-        getStarted, 
-        handleTemplateClick, 
-        handleTemplateClose, 
+        getStarted,  
         handleToast, 
         handleDoNotShowAgain 
     };
