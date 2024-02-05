@@ -2,16 +2,21 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
-import {  BsXLg } from 'react-icons/bs'
+import { BsXLg } from 'react-icons/bs'
 import './category.css'
 import CATEGORY_DETAILS from '../data/CATEGORY-DETAILS'
 import Tips from './Tips'
-import ValidateAndSubmit from './category-functions/ValidateAndSubmit'
 import Education from './sub-components/Education'
 import Experience from './sub-components/Experience'
 import Credentials from './sub-components/Credentials'
 import Skills from './sub-components/Skills'
 import Certification from './sub-components/Certification'
+import CredentialFunction from './sub-components/CredentialFunction'
+import EducationFunction from './sub-components/EducationFunction'
+import ExperienceFunction from './sub-components/ExperienceFunction'
+import SkillsFunction from './sub-components/SkillsFunction'
+import CertificationFunction from './sub-components/CertificationFunction'
+import ShowResumeFormats from './resume-formats/ShowResumeFormats'
 
 export default function Category({ 
     id, 
@@ -27,12 +32,52 @@ export default function Category({
         setShowTips(name);
     }
 
-    const { 
-        handleSubmit,
-    } = ValidateAndSubmit();
+    const [showResumeFormats, setShowResumeFormats] = useState(false);
+    const [errorsMessage, setErrorMessage] = useState(false);
+
+    const {
+        errorResponses,
+        resumeCredentials,
+    } = CredentialFunction();
+
+    const {
+        educationSections,
+    } = EducationFunction();
+
+    const {
+        experienceSections,
+    } = ExperienceFunction();
+
+    const {
+        skills,
+    } = SkillsFunction();
+
+    const {
+        certifications,
+    } = CertificationFunction();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // if (
+        //     errorResponses.length < 1 && educationSections.errors.length < 1 && experienceSections.errors.length < 1 &&
+        //     resumeCredentials.errors.length < 1 && skills.errors.length < 1 && certifications.errors.length < 1
+        //     )
+        // {
+        //     setShowResumeFormats(true);
+        // } else {
+        //     setErrorMessage(true);
+        //     setTimeout(() => {
+        //         setErrorMessage(false);
+        //     }, 20000);
+        // }
+        setShowResumeFormats(true);
+    };
 
     return (
         <>
+        {
+            showResumeFormats && <ShowResumeFormats closePopup={setShowResumeFormats} />
+        }
         {
             toast &&
             <div id="toast" className="toast">
@@ -42,6 +87,14 @@ export default function Category({
                     <input type="checkbox" checked={false} onChange={handleDoNotShowAgain} />
                     <label>{`Don't show again`}</label>
                 </div>
+            </div>
+        }
+        {   
+            errorsMessage &&
+            <div id="error-message" className="error-message">
+                <button className="close" onClick={() => setErrorMessage(false)}><BsXLg /></button>
+                <p>You have errors in your resume form.</p>
+                <p>Kindly follow the tips for each field.</p>
             </div>
         }
         <div className={`single-category-view ${className}`}>

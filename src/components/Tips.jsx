@@ -177,7 +177,7 @@ export default function Tips({ title }) {
                                 <li>Institute must be between 3 and 25 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('certification') ? (
+                    ) : title.includes('certificate') ? (
                         <>
                             <h3>Certificate Title</h3>
                             <ol className="text-white">
