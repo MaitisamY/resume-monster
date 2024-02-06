@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function CredentialFunction() {
     const [errorResponses, setErrorResponses] = useState({
@@ -11,14 +11,17 @@ export default function CredentialFunction() {
         summary: '',
     });
     
-    const [resumeCredentials, setResumeCredentials] = useState({
-        firstName: '',
-        lastName: '',
-        designation: '',
-        email: '',
-        phoneNumber: '',
-        address: '',
-        summary: '',
+    const [resumeCredentials, setResumeCredentials] = useState(() => {
+        const storedCredentials = localStorage.getItem('resumeCredentials');
+        return storedCredentials ? JSON.parse(storedCredentials) : {
+            firstName: '',
+            lastName: '',
+            designation: '',
+            email: '',
+            phoneNumber: '',
+            address: '',
+            summary: '',
+        };
     });
     
     const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -98,8 +101,8 @@ export default function CredentialFunction() {
           case 'summary':
             if (value.trim() === '') {
               errors.summary = 'Summary is required';
-            } else if (value.length < 100 || value.length > 350) {
-              errors.summary = 'Summary must be between 100 and 350 characters';
+            } else if (value.length < 100 || value.length > 1000) {
+              errors.summary = 'Summary must be between 100 and 1000 characters';
             } else {
               errors.summary = '';
             }
@@ -113,6 +116,10 @@ export default function CredentialFunction() {
           [name]: errors[name] || '',
         }));
     };
+
+    useEffect(() => {
+        localStorage.setItem('resumeCredentials', JSON.stringify(resumeCredentials));
+    }, [resumeCredentials]);
 
     return { 
         errorResponses,

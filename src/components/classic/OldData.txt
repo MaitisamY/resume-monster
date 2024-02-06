@@ -1,0 +1,176 @@
+{/* <pre className="font-josefin-sans">
+    Name and Surname Min: 3, 3 &nbsp; Max: 
+    (<i className={header.name.length < 3 || header.name.length > 18 ? 'text-danger' : ''}>
+    {header.name.length}</i>/18), 
+    (<i className={header.surname.length < 3 || header.surname.length > 8 ? 'text-danger' : ''}>
+    {header.surname.length}</i>/8)
+</pre> */}
+{/* {
+showHeaderSaveBtn ? (
+<button 
+    className="header-confirm-edit font-lora"
+    onClick={saveHeader}
+>
+    Save Header 
+</button>
+) : showEditHeaderBtn ? (
+<button 
+    className="header-confirm-edit font-lora"
+    onClick={() => (setShowHeaderSaveBtn(true), setShowEditHeaderBtn(false))}
+>
+    Edit Header
+</button>
+) : (
+null
+)
+} */}
+
+{/* {
+    !showEditHeaderBtn && (
+        <>
+        <pre className="font-josefin-sans">
+            (<i className={header.cell.length < 11 || header.cell.length > 14 ? 'text-danger' : ''}>
+            {header.cell.length}</i>/11 to 14)
+        </pre>
+        {!isNumeric(header.cell) && header.cell.length > 0 ? (
+            <pre className="font-josefin-sans">
+                <i className="text-danger">Special characters and <br /> alphabets are not allowed</i>
+            </pre>
+        ) : null}
+        </>
+    )
+} */}
+
+{/* {
+    showEditHeaderBtn ? (
+        
+    ) : (
+        <input 
+            className="font-lora" 
+            type="text" 
+            placeholder="Email Address"
+            name="email" 
+            onChange={handleHeaderChange}
+            value={header.email}
+        />
+    )
+} */}
+
+
+{/* {
+    !showEditHeaderBtn && (
+        <>
+        <pre className="font-josefin-sans">Min: 5 &nbsp; Max: 
+        (<i className={header.email.length < 6 || header.email.length > 30 ? 'text-danger' : ''}>
+            {header.email.length}</i>/30)
+        </pre>
+        {!isEmailValid(header.email) && header.email.length >= 6 && (
+        <pre className="font-josefin-sans">
+            <i className="text-danger">Invalid email pattern</i>
+        </pre>
+        )}
+        </>
+    )
+} */}
+
+{/* {
+    showEditHeaderBtn ? (
+        
+    ) : (
+        <textarea 
+            className="font-lora" 
+            type="text" 
+            placeholder="Location / Address"
+            name="address" 
+            onChange={handleHeaderChange}
+            value={header.address}
+            rows={3}
+            minLength={6}
+            maxLength={50}
+            min={25}
+            max={50}
+        >
+        </textarea>
+    )
+} */}
+
+{/* {
+    !showEditHeaderBtn && (
+        <pre className="font-josefin-sans">Min: 25 &nbsp; Max: 
+        (<i className={header.address.length < 25 || header.address.length > 50 ? 'text-danger' : ''}>
+        {header.address.length}</i>/50)</pre>
+    )
+} */}
+
+{/* {
+    headerFilledStatus && !showEditHeaderBtn && (
+        <>
+        <p className="error-message font-josefin-sans">
+            All fields should be filled according to the requirements.
+        </p>
+        <div id="arrowAnim">
+            <div className="arrowSliding"><div className="arrow"></div></div>
+            <div className="arrowSliding delay1"><div className="arrow"></div></div>
+            <div className="arrowSliding delay2"><div className="arrow"></div></div>
+            <div className="arrowSliding delay3"><div className="arrow"></div></div>
+        </div>
+        </>
+    )
+} */}
+
+{/* {
+    summaryStatus ? (
+        <>
+        
+        <button 
+            onClick={() => (setSummaryStatus(false), setSummaryFilledStatus(false))} 
+            className="save-summary font-lora"
+        >
+            Edit Summary
+        </button>
+        </>
+    ) : (
+        <>
+        <p 
+            className="limit-words font-josefin-sans"
+        >
+            Min: 100 &nbsp; Max: (
+                <span className={summary.length < 100 || summary.length > 350  ? "text-danger" : ""}>
+                {summary.length}</span>/350)
+        </p>
+        {
+            summaryFilledStatus === 'Empty' ? (
+                <p className="error-message font-josefin-sans">
+                    Summary cannot be empty
+                </p>
+            ) : summaryFilledStatus === 'Less' ? (
+                <p className="error-message font-josefin-sans">
+                    Summary should be atleast 100 characters
+                </p>
+            ) : summaryFilledStatus === 'More' ? (
+                <p className="error-message font-josefin-sans">
+                    Summary should not be more than 350 characters 
+                </p>
+            ) : null
+        }
+        <textarea 
+            className="summary font-lora" 
+            type="text" 
+            placeholder="Write your summary here"
+            name="summary" 
+            onChange={handleSummaryChange}
+            value={summary}
+            rows={5}
+            minLength={100}
+            min={100}
+        >
+        </textarea>
+        <button 
+            onClick={() => saveSummary()} 
+            className="save-summary font-lora"
+        >
+            Save Summary
+        </button>
+        </>
+    )
+} */}

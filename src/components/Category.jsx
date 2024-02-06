@@ -124,6 +124,7 @@ export default function Category({
                     handleTemplates={handleTemplates} 
                     backToTemplates={closeTemplate}
                     handleOutsideClick={handleOutsideClick}
+                    
                 />
         }
         {

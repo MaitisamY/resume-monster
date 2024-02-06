@@ -41,9 +41,8 @@
 .resume-formats {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    width: 70%;
     box-sizing: border-box;
     flex-wrap: wrap;
     padding: 20px 20px 40px 20px;
@@ -163,7 +162,7 @@
     background-color: rgba(46, 100, 255, 1);
 }
 
-.resume-formats .back {
+.back {
     position: absolute;
     top: 15px;
     left: 30px;
@@ -178,6 +177,20 @@
     padding: 0;
 }
 
+.print {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Work Sans', sans-serif;
+    color: #545454;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 0;
+}
 
 @media screen and (max-width: 768px) {
     .resume-formats-popup h3 {
@@ -194,7 +207,6 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        width: 96%;
         margin-top: 10px;
         box-sizing: border-box;
         flex-wrap: wrap;
@@ -211,5 +223,17 @@
         width: 100%;
         height: auto;
         object-fit: cover;
+    }
+}
+
+@media print {
+    .resume-formats {
+        box-shadow: none;
+    }
+    .back {
+        display: none;
+    }
+    .print {
+        display: none;
     }
 }

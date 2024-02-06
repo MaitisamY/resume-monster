@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 import './ShowResumeFormats.css'
-import { BsXLg, BsArrowLeft } from 'react-icons/bs'
+import { BsXLg, BsArrowLeft, BsPrinter } from 'react-icons/bs'
 import CLASSIC from '../../assets/classic.jpg';
 import CONTEMPORARY from '../../assets/contemporary.jpg';
 import MINIMALIST from '../../assets/minimalist.jpg';
@@ -11,6 +11,7 @@ import PROFESSIONAL from '../../assets/professional.jpg';
 import STANDARD from '../../assets/standard.jpg';
 import STYLISH from '../../assets/stylish.jpg';
 import TECHNICAL from '../../assets/technical.jpg';
+import Classic from '../classic/Classic'
 
 export default function ShowResumeFormats({ 
     closePopup, 
@@ -19,15 +20,35 @@ export default function ShowResumeFormats({
     backToTemplates,
     format,
     handleFormat,
-    handleOutsideClick
+    handleOutsideClick,
  }) {
+    const [finalResume, setFinalResume] = useState(false);
+
+    const handleFinalResume = () => {
+        setFinalResume(true);
+    }
+
+    const handlePrint = () => {
+        window.print();
+    };
+
     return (
         <div id="resume-formats-popup" className="resume-formats-popup" onClick={handleOutsideClick}>
             <button className="close" onClick={closePopup}><BsXLg /></button>
-            <div className="resume-formats" style={{ height: format !== null ? '100%' : '90%' }}>
+            <div className="resume-formats" style={{ 
+                height: format !== null || finalResume ? '100%' : '90%', 
+                width: format !== null || finalResume ? '100%' : '70%' 
+                }}
+            >
             {
-
-                !templates ? 
+                finalResume ? (
+                    <>
+                        <button className="back" onClick={() => setFinalResume(false)}><BsArrowLeft /></button>
+                        <button className="print" onClick={handlePrint}><BsPrinter /></button>
+                        <Classic />
+                    </>
+                ) : !templates ? (
+                 
                     <>
                         <ul className="instructions">
                             <h3>Select a resume template</h3>
@@ -42,7 +63,7 @@ export default function ShowResumeFormats({
                                 src={CLASSIC}
                             />
                             <h5>Classic</h5>
-                            <button>Preview</button>
+                            <button onClick={handleFinalResume}>Preview</button>
                         </div>
                         <div className="resume-template">
                             <img 
@@ -108,7 +129,7 @@ export default function ShowResumeFormats({
                             <button className="disabled">Coming Soon</button>
                         </div>    
                     </>
-                 : 
+                 ) : (
                     <>
                         <button className="back" onClick={() => backToTemplates(false)}><BsArrowLeft /></button>
                         <img
@@ -135,7 +156,7 @@ export default function ShowResumeFormats({
                             }
                         />
                     </>
-                
+                 )
             }
             </div>
         </div>

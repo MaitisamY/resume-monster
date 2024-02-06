@@ -1,3 +1,8 @@
+.template-box {
+    position: relative;
+    margin: 30px 0 0 0;
+}
+
 .classic-view-header {
     position: relative;
     display: flex;
@@ -62,35 +67,6 @@
     font-style: normal;
 }
 
-.classic-view-header .name-designation input {
-    background-color: transparent;
-    padding: 12px;
-    margin: 0 10px 0 10px;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    outline: none;
-    color: #545454;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
-
-.classic-view-header .name-designation .header-confirm-edit {
-    background-color: transparent;
-    padding: 5px 15px;
-    margin: 20px 0 0 0;
-    cursor: pointer;
-    color: #545454;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-    place-self: center;
-}
-
-.classic-view-header .name-designation .header-confirm-edit:hover {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
-}
-
 .classic-view-header .details {
     display: flex;
     flex-direction: column;
@@ -102,33 +78,6 @@
     padding: 2rem 2rem;
     box-sizing: border-box;
     flex-shrink: 2;
-}
-
-.classic-view-header .details input {
-    background-color: transparent;
-    padding: 12px;
-    box-sizing: border-box;
-    margin: 0 5px 0 0;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    outline: none;
-    color: #545454;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
-
-.classic-view-header .details textarea {
-    background-color: transparent;
-    padding: 12px;
-    box-sizing: border-box;
-    margin: 10px 5px 0 0;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    outline: none;
-    color: #545454;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-    resize: none;
 }
 
 .classic-view-header .details p small {
@@ -164,17 +113,37 @@
     object-fit: cover;
 }
 
-.classic-view-header .error-message {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: auto;
-    padding: 5px;
-    text-align: center;
-    font-size: 15px;
-    color: #d31111;
-    letter-spacing: 1.5px;
+@media print {
+    .classic-view-header {
+        flex-wrap: nowrap;
+    }
+
+    .classic-view-header .name-designation {
+        padding: 1rem 5px;
+        flex-shrink: none;
+    }
+
+    .classic-view-header .name-designation p i {
+        font-size: 16px;
+    }
+    
+    .classic-view-header .name-designation p span {
+        font-size: 18px;
+    }
+    
+    .classic-view-header .name-designation p small {
+        font-size: 12px;
+    }
+    .classic-view-header .details {
+        gap: 10px;
+        padding: 2rem 5px;
+        flex-shrink: none;
+    }
+    
+    .classic-view-header .details p small {
+        font-size: 12px;
+        text-wrap: wrap;
+    }
 }
 
 #arrowAnim {
@@ -267,16 +236,6 @@
     height: auto;
 }
 
-.classic-view-content .error-message {
-    width: auto;
-    height: auto;
-    padding: 5px;
-    text-align: center;
-    font-size: 15px;
-    color: #d31111;
-    letter-spacing: 1.5px;
-}
-
 .classic-view-content h1 {
     width: 50%;
     text-align: center;
@@ -290,47 +249,10 @@
     letter-spacing: 1.5px;
 }
 
-.classic-view-content .summary {
-    width: 50%;
-    height: auto;
-    box-sizing: border-box;
-    background-color: transparent;
-    padding: 12px;
-    box-sizing: border-box;
-    margin: 0 0 10px 0;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    outline: none;
-    color: #545454;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-    resize: none;
-}
-
-.classic-view-content .limit-words {
-    color: #545454;
-    font-weight: normal;
-    font-size: 12px;
-    background-color: #fff;
-    font-weight: 100;
+.classic-view-content p {
+    width: 80%;
+    padding: 10px;
     letter-spacing: 1.5px;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-.classic-view-content .save-summary {
-    background-color: transparent;
-    padding: 5px 15px;
-    cursor: pointer;
-    color: #545454;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
-
-.classic-view-content .save-summary:hover {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 }
 
 .content-holder-grid {

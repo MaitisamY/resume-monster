@@ -68,7 +68,7 @@ export default function Tips({ title }) {
                                 <li>Your Summary is must to enter.</li>
                                 <li>Write a brief summary of your experience, education and skills.</li>
                                 <li>Choose wise and simple words to describe yourself, your goals and the stuff you bring to the table.</li>
-                                <li>Summary should be between 100 and 350 characters.</li>
+                                <li>Summary should be between 100 and 1000 characters.</li>
                             </ol>
                         </>
                     ) : title.includes('experienceDesignation') ? (
