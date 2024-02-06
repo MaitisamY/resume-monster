@@ -180,6 +180,11 @@
 
 
 @media screen and (max-width: 768px) {
+    .resume-formats-popup h3 {
+        font-size: 24px;
+        padding: 15px 0 15px 0;
+    }
+    
     .resume-formats-popup .close {
         font-size: 22px;
     }
