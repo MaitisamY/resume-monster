@@ -26,7 +26,6 @@ export default function Category({
     className 
 }) {
     const DETAILS = CATEGORY_DETAILS.find((detail) => detail.id === id);
-
     const [showTips, setShowTips] = useState(null);
     const handleShowTips = (name) => {
         setShowTips(name);
@@ -34,6 +33,35 @@ export default function Category({
 
     const [showResumeFormats, setShowResumeFormats] = useState(false);
     const [errorsMessage, setErrorMessage] = useState(false);
+    const [templates, setTemplates] = useState(false);
+    const [format, setFormat] = useState(null);
+
+    const closeResumeFormats = () => {
+        const formatElement = document.getElementById('resume-formats-popup');
+        if (formatElement) {
+            formatElement.style.transition = 'opacity 0.5s ease-out';
+            formatElement.style.opacity = '0';
+
+            setTimeout(() => {
+                setShowResumeFormats(false);
+                setTemplates(false);
+                setFormat(null);
+            }, 500);
+        }
+    }
+
+    const handleTemplates = () => {
+        setTemplates(true);
+    }
+
+    const handleFormat = (format) => {
+        setFormat(format);
+    }
+
+    const closeTemplate = () => {
+        setTemplates(false);
+        setFormat(null);
+    }
 
     const {
         errorResponses,
@@ -70,19 +98,34 @@ export default function Category({
         //         setErrorMessage(false);
         //     }, 20000);
         // }
+
         setShowResumeFormats(true);
     };
 
     return (
         <>
         {
-            showResumeFormats && <ShowResumeFormats closePopup={setShowResumeFormats} />
+            showResumeFormats && 
+                <ShowResumeFormats 
+                    closePopup={closeResumeFormats} 
+                    templates={templates} 
+                    format={format}
+                    handleFormat={handleFormat}
+                    handleTemplates={handleTemplates} 
+                    backToTemplates={closeTemplate}
+                />
         }
         {
             toast &&
             <div id="toast" className="toast">
                 <button className="close" onClick={handleToast}><BsXLg /></button>
-                <p>These are the complete instructions to get started and to build your resume.</p>
+                <h3>Welcome to the Resume Overview 📄</h3>
+                <p>This side pane offers a comprehensive guide to crafting your chronological resume. 
+                Follow the chronological order for your work experiences, starting with the most recent. 
+                Pay attention to the structure, emphasizing work history, career growth, and education.</p>
+                <h3>🔍 Explore the format</h3>
+                <p>This format is great for showcasing a strong work history and career progression. 
+                Check out the tips and suggestions in this side pane for a successful resume submission. Happy crafting! ✨</p>
                 <div className="mt-20">
                     <input type="checkbox" checked={false} onChange={handleDoNotShowAgain} />
                     <label>{`Don't show again`}</label>
@@ -168,7 +211,7 @@ export default function Category({
                                     className="build-btn cursor-pointer smooth-transition font-work-sans" 
                                     type="submit"
                                 >
-                                    Build
+                                    Build Up
                                 </button>
                             </div>
                         </div>  

@@ -4,6 +4,18 @@
     transition: all 0.2s ease-in-out;
 }
 
+.smooth-scale {
+    transform: scale(1.05);
+}
+
+.smooth-transition-hover:hover {
+    transition: all 0.2s ease-in-out;
+}
+
+.smooth-scale-hover:hover {
+    transform: scale(1.05);
+}
+
 .font-work-sans {
     font-family: 'Work Sans', sans-serif;
 }
@@ -1126,4 +1138,9 @@
         justify-content: center;
         align-items: center;
     }
+}
+
+.btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }

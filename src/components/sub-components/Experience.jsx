@@ -119,7 +119,7 @@ export default function Experience({ handleShowTips }) {
                     }
                 </div>
                 <div className="input-group">
-                    <label className="font-work-sans">From</label>
+                    <label className="font-work-sans">Year From</label>
                     <input
                         name={`experienceFrom_${section.id}`}
                         value={section.experienceFrom}
@@ -144,7 +144,7 @@ export default function Experience({ handleShowTips }) {
                     }
                 </div>
                 <div className="input-group">
-                    <label className="font-work-sans">To</label>
+                    <label className="font-work-sans">Year To</label>
                     <input
                         name={`experienceTo_${section.id}`}
                         value={section.experienceTo}

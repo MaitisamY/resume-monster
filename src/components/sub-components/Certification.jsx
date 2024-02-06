@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import { BsPlusCircle, BsDashCircle } from 'react-icons/bs'
 import CertificationFunction from './CertificationFunction'
 export default function Certification({ handleShowTips }) {
@@ -85,7 +87,7 @@ export default function Certification({ handleShowTips }) {
               </div>
               <div className="row">
                 <div className="input-group">
-                  <label className="font-work-sans">Start Year</label>
+                  <label className="font-work-sans">Year From</label>
                   <input
                       name={`yearFrom_${section.id}`}
                       value={section.yearFrom}

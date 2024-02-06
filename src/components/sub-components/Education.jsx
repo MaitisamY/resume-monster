@@ -88,7 +88,7 @@ export default function Education({ handleShowTips }) {
               </div>
               <div className="row">
                 <div className="input-group">
-                  <label className="font-work-sans">Start Year</label>
+                  <label className="font-work-sans">Year From</label>
                   <input
                       name={`startYear_${section.id}`}
                       value={section.startYear}

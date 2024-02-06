@@ -54,7 +54,7 @@ export default function Home() {
                     <>
                     <h2>Welcome to <span className="brand">Resume Monster</span>, Select a category to get started</h2>
                     <div className="category-selector">
-                        {/* {resumeCategories.map((category) => (
+                        {resumeCategories.map((category) => (
                         <div
                             key={category.id}
                             className={`category 
@@ -66,17 +66,27 @@ export default function Home() {
                                 {category.title}
                             </h3>
                             <p>{category.description}</p>
-                            <button
-                            className={`
-                                bg-none border-white cursor-pointer text-white px-30 py-10 font-work-sans 
-                                ${category.id % 2 === 0 ? 'hover-bg-blue hover-border-blue' : 'hover-bg-purple hover-border-purple'}
-                                `}
-                            onClick={() => getStarted(category.id)}>
-                            Get Started
-                            </button>
+                            {
+                                category.id === 1 ? (
+                                    <button
+                                        className={`
+                                            bg-none border-white cursor-pointer text-white px-30 py-10 font-work-sans 
+                                            smooth-transition-hover smooth-scale-hover ${category.id % 2 === 0 ? 
+                                            'hover-bg-blue hover-border-blue' : 'hover-bg-purple hover-border-purple'}
+                                            `}
+                                        onClick={() => getStarted(category.id)}
+                                    >
+                                        Get Started
+                                    </button>
+                                ) : (
+                                    <button className="bg-none border-white btn-disabled text-white px-30 py-10 font-work-sans">
+                                        Coming Soon
+                                    </button>
+                                )
+                            }
                         </div>
-                        ))} */}
-                        <div className="category border-blue-shaded hover-shade-blue">
+                        ))}
+                        {/* <div className="category border-blue-shaded hover-shade-blue">
                             <h3 className="border-bottom-blue-shaded">
                                 Start Building
                             </h3>
@@ -88,7 +98,7 @@ export default function Home() {
                             onClick={() => getStarted(resumeCategories[0].id)}>
                             Get Started
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     </>
                 )}
