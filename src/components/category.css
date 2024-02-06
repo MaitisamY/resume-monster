@@ -29,7 +29,7 @@
     background-color: #242323;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .detail-box {
         display: none;
     }
@@ -377,7 +377,7 @@
     margin-right: 5px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .single-category-view {
         flex-direction: column;
         padding: 0;
@@ -393,6 +393,10 @@
     }
     .resume-box form label {
         padding: 10px 0 10px 0;
+    }
+    .resume-box form h4 {
+        padding: 0;
+        text-align: center;
     }
 }
 
@@ -454,7 +458,7 @@
     background-color: #242323;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .add-remove-sections {
         width: auto;
     }
@@ -563,7 +567,7 @@
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .detail-box,
     .tip-box,
     .toast {
@@ -589,7 +593,7 @@
     background-color: #242323;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .build-btn {
         width: 90%;
         margin: 50px 0 0 0;
@@ -639,7 +643,7 @@
     border-radius: 50px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .error-message {
         width: 90%;
         padding: 15px;

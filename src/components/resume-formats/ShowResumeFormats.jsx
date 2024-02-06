@@ -18,12 +18,13 @@ export default function ShowResumeFormats({
     handleTemplates, 
     backToTemplates,
     format,
-    handleFormat
+    handleFormat,
+    handleOutsideClick
  }) {
     return (
-        <div id="resume-formats-popup" className="resume-formats-popup">
+        <div id="resume-formats-popup" className="resume-formats-popup" onClick={handleOutsideClick}>
             <button className="close" onClick={closePopup}><BsXLg /></button>
-            <div className="resume-formats" style={{ height: format !== null ? '99%' : '90%' }}>
+            <div className="resume-formats" style={{ height: format !== null ? '100%' : '90%' }}>
             {
 
                 !templates ? 

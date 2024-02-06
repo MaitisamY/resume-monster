@@ -5,7 +5,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #00000093;
+    background: #ffffff17;
     border-radius: 10px;
 }
 
@@ -14,11 +14,11 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #ffffff17;
+    background-color: #242424;
 }
 
 ::-webkit-scrollbar-track:hover {
-    background: #ffffff17;
+    background-color: #242424;
 }
 
 .fade-in {
@@ -44,7 +44,7 @@ body {
     overflow-y: auto;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     body {
         margin: 0;
         padding: 0;
@@ -174,7 +174,7 @@ main h2 .brand-2 {
     transition: all 0.5s ease-in-out;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     header h1 {
         width: 90%;
         font-size: 45px;
@@ -251,7 +251,19 @@ main h2 .brand-2 {
     font-weight: 500;
 }
 
+.navigator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
 .home-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
     font-size: 20px;
     font-family: 'Work Sans', sans-serif;
     border-radius: 10px;
@@ -274,10 +286,16 @@ main h2 .brand-2 {
     font-family: 'Work Sans', sans-serif;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .home-btn {
-        font-size: 16px;
+        font-size: 15px;
     }
+    .breadcrumb {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 300px) {
     .breadcrumb {
         display: none;
     }

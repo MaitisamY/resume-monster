@@ -50,6 +50,16 @@ export default function Category({
         }
     }
 
+    const handleOutsideClick = (e) => {
+        if (e.target.id === 'resume-formats-popup') {
+            setTimeout(() => {
+                setShowResumeFormats(false);
+                setTemplates(false);
+                setFormat(null);
+            }, 500);
+        }
+    }
+
     const handleTemplates = () => {
         setTemplates(true);
     }
@@ -113,6 +123,7 @@ export default function Category({
                     handleFormat={handleFormat}
                     handleTemplates={handleTemplates} 
                     backToTemplates={closeTemplate}
+                    handleOutsideClick={handleOutsideClick}
                 />
         }
         {
