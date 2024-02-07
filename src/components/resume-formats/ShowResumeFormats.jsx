@@ -21,6 +21,11 @@ export default function ShowResumeFormats({
     format,
     handleFormat,
     handleOutsideClick,
+    resumeCredentials, 
+    educationSections,
+    experienceSections,
+    skills,
+    certifications
  }) {
     const [finalResume, setFinalResume] = useState(false);
 
@@ -55,7 +60,13 @@ export default function ShowResumeFormats({
                             <button className="download" onClick={handleDownload}><BsDownload /></button>
                             <button className="print" onClick={handlePrint}><BsPrinter /></button>
                         </div>
-                        <Classic />
+                        <Classic
+                            resumeCredentials={resumeCredentials}
+                            educationSections={educationSections}
+                            experienceSections={experienceSections}
+                            skills={skills}
+                            certifications={certifications}
+                        />
                     </>
                 ) : !templates ? (
                  

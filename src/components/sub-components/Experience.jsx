@@ -56,13 +56,13 @@ export default function Experience({ handleShowTips }) {
                 <div className="input-group">
                     <label className="font-work-sans">Designation</label>
                     <input
-                        name={`experienceDesignation_${section.id}`}
+                        name="experienceDesignation"
                         value={section.experienceDesignation}
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. Web Developer"
-                        onChange={(e) => handleExperienceChange(section.id, 'experienceDesignation', e.target.value)}
-                        onBlur={(e) => validateExperienceField(section.id, 'experienceDesignation', e.target.value)}
+                        onChange={(e) => handleExperienceChange(section.id, e.target.name, e.target.value)}
+                        onBlur={(e) => validateExperienceField(section.id, e.target.name, e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
                         onMouseEnter={(e) => handleShowTips(e.target.name)}
                         onMouseLeave={() => handleShowTips(null)}
@@ -70,20 +70,18 @@ export default function Experience({ handleShowTips }) {
                         autoComplete="off"
                         spellCheck="false"
                     />
-                    {section.errors.experienceDesignation &&
-                        <p className="text-danger pl-20">{section.errors.experienceDesignation}</p>
-                    }
+                    {section.errors.experienceDesignation && <p className="text-danger pl-20">{section.errors.experienceDesignation}</p>}
                 </div>
                 <div className="input-group">
                     <label className="font-work-sans">Company</label>
                     <input
-                        name={`experienceCompany_${section.id}`}
+                        name="experienceCompany"
                         value={section.experienceCompany}
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. Microsoft"
-                        onChange={(e) => handleExperienceChange(section.id, 'experienceCompany', e.target.value)}
-                        onBlur={(e) => validateExperienceField(section.id, 'experienceCompany', e.target.value)}
+                        onChange={(e) => handleExperienceChange(section.id, e.target.name, e.target.value)}
+                        onBlur={(e) => validateExperienceField(section.id, e.target.name, e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
                         onMouseEnter={(e) => handleShowTips(e.target.name)}
                         onMouseLeave={() => handleShowTips(null)}
@@ -91,7 +89,7 @@ export default function Experience({ handleShowTips }) {
                         autoComplete="off"
                         spellCheck="false"
                     />
-                    {section.errors.experienceCompany &&
+                    {section.errors.experienceCompany && 
                         <p className="text-danger pl-20">{section.errors.experienceCompany}</p>
                     }
                 </div>
@@ -100,13 +98,13 @@ export default function Experience({ handleShowTips }) {
                 <div className="input-group">
                     <label className="font-work-sans">Duration</label>
                     <input
-                        name={`experienceDuration_${section.id}`}
+                        name="experienceDuration"
                         value={section.experienceDuration}
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. 3 years"
-                        onChange={(e) => handleExperienceChange(section.id, 'experienceDuration', e.target.value)}
-                        onBlur={(e) => validateExperienceField(section.id, 'experienceDuration', e.target.value)}
+                        onChange={(e) => handleExperienceChange(section.id, e.target.name, e.target.value)}
+                        onBlur={(e) => validateExperienceField(section.id, e.target.name, e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
                         onMouseEnter={(e) => handleShowTips(e.target.name)}
                         onMouseLeave={() => handleShowTips(null)}
@@ -114,20 +112,20 @@ export default function Experience({ handleShowTips }) {
                         autoComplete="off"
                         spellCheck="false"
                     />
-                    {section.errors.experienceDuration &&
+                    {section.errors.experienceDuration && 
                         <p className="text-danger pl-20">{section.errors.experienceDuration}</p>
                     }
                 </div>
                 <div className="input-group">
                     <label className="font-work-sans">Year From</label>
                     <input
-                        name={`experienceFrom_${section.id}`}
+                        name="experienceFrom"
                         value={section.experienceFrom}
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. 2019"
-                        onBlur={(e) => validateExperienceField(section.id, 'experienceFrom', e.target.value)}
-                        onChange={(e) => handleExperienceChange(section.id, 'experienceFrom', e.target.value)}
+                        onBlur={(e) => validateExperienceField(section.id, e.target.name, e.target.value)}
+                        onChange={(e) => handleExperienceChange(section.id, e.target.name, e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
                         onMouseEnter={(e) => handleShowTips(e.target.name)}
                         onMouseLeave={() => handleShowTips(null)}
@@ -135,20 +133,20 @@ export default function Experience({ handleShowTips }) {
                         autoComplete="off"
                         spellCheck="false"
                     />
-                    {section.errors.experienceFrom &&
+                    {section.errors.experienceFrom && 
                         <p className="text-danger pl-20">{section.errors.experienceFrom}</p>
                     }
                 </div>
                 <div className="input-group">
                     <label className="font-work-sans">Year To</label>
                     <input
-                        name={`experienceTo_${section.id}`}
+                        name="experienceTo"
                         value={section.experienceTo}
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. 2022"
-                        onBlur={(e) => validateExperienceField(section.id, 'experienceTo', e.target.value)}
-                        onChange={(e) => handleExperienceChange(section.id, 'experienceTo', e.target.value)}
+                        onBlur={(e) => validateExperienceField(section.id, e.target.name, e.target.value)}
+                        onChange={(e) => handleExperienceChange(section.id, e.target.name, e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
                         onMouseEnter={(e) => handleShowTips(e.target.name)}
                         onMouseLeave={() => handleShowTips(null)}
@@ -156,7 +154,7 @@ export default function Experience({ handleShowTips }) {
                         autoComplete="off"
                         spellCheck="false"
                     />
-                    {section.errors.experienceTo &&
+                    {section.errors.experienceTo && 
                         <p className="text-danger pl-20">{section.errors.experienceTo}</p>
                     }
                 </div>
@@ -176,7 +174,6 @@ export default function Experience({ handleShowTips }) {
                                 className="font-work-sans"
                                 type="text"
                                 placeholder="E.g. Worked on multiple projects."
-                                onBlur={(e) => validateExperienceField(section.id, e.target.name, e.target.value, card.id)}
                                 onChange={(e) => handleExperienceChange(section.id, e.target.name, e.target.value, card.id)}
                                 onFocus={(e) => handleShowTips(e.target.name)}
                                 onMouseEnter={(e) => handleShowTips(e.target.name)}
@@ -186,13 +183,8 @@ export default function Experience({ handleShowTips }) {
                                 spellCheck="false"
                             />
                         </li>
-                        {section.errors.experienceDescription && 
-                            <p className="text-danger pl-20">
-                                {section.errors.experienceDescription.filter((error) => error.id === card.id)[0].content}
-                            </p>
-                        }
                     </ol>
-                    {card.id !== 1 && (
+                    {(index + 1) !== 1 && (
                         <button 
                             className="remove-detail-point negative ml-10" 
                             type="button" 

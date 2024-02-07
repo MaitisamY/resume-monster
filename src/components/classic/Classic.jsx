@@ -7,33 +7,8 @@ import './classic.css'
 import CELL from '../../assets/icons/cell.png'
 import EMAIL from '../../assets/icons/email.png'
 import ADDRESS from '../../assets/icons/address.png'
-import CredentialFunction from '../sub-components/CredentialFunction'
-import EducationFunction from '../sub-components/EducationFunction'
-import ExperienceFunction from '../sub-components/ExperienceFunction'
-import SkillsFunction from '../sub-components/SkillsFunction'
-import CertificationFunction from '../sub-components/CertificationFunction'
 import Function from './Function'
-export default function Classic() {
-    const {
-        errorResponses,
-        resumeCredentials,
-    } = CredentialFunction();
-
-    const {
-        educationSections,
-    } = EducationFunction();
-
-    const {
-        experienceSections,
-    } = ExperienceFunction();
-
-    const {
-        skills,
-    } = SkillsFunction();
-
-    const {
-        certifications,
-    } = CertificationFunction();
+export default function Classic({ resumeCredentials, educationSections, experienceSections, skills, certifications }) {
     return (
                 <div className="template-box">
                     <div className="classic-view-header">

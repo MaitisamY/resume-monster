@@ -82,6 +82,7 @@ export default function SkillsFunction() {
 
     return {
         skills,
+        setSkills,
         handleAdd,
         handleRemove,
         handleChange,

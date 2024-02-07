@@ -94,62 +94,71 @@ export default function Category({
         certifications,
     } = CertificationFunction();
 
+    const err = errorResponses;
+
+    const cred = resumeCredentials;
+
     const handleSubmit = (e) => {
         e.preventDefault();
     
-        // Check for errors in each state
-        const hasCredentialErrors = Object.keys(errorResponses).some(field => {
-            const errorMessage = errorResponses[field];
-            console.log('Error Message:', errorMessage);
-            return errorMessage.trim() !== '' && errorMessage.trim() !== null;
-        });
-        
-        const hasEducationErrors = educationSections.some(section => (
-            Object.keys(section.errors).some(field => {
-                const errorMessage = section.errors[field];
-                return errorMessage.trim() !== '';
-            })
-        ));
-        
-        const hasExperienceErrors = experienceSections.some(section => (
-            Object.keys(section.errors).some(field => {
-                const errorMessage = section.errors[field];
-                return errorMessage.trim() !== '';
-            })
-        ));
-        
-        const hasSkillsErrors = skills.some(skill => (
-            Object.keys(skill.errors).some(field => {
-                const errorMessage = skill.errors[field];
-                return errorMessage.trim() !== '';
-            })
-        ));
-        
-        const hasCertificationErrors = certifications.some(certification => (
-            Object.keys(certification.errors).some(field => {
-                const errorMessage = certification.errors[field];
-                return errorMessage.trim() !== '';
-            })
-        ));
-    
-        // Log errors for each state
-        console.log('Credential Errors:', hasCredentialErrors);
-        console.log('Education Errors:', hasEducationErrors);
-        console.log('Experience Errors:', hasExperienceErrors);
-        console.log('Skills Errors:', hasSkillsErrors);
-        console.log('Certification Errors:', hasCertificationErrors);
-    
-        // If no errors in any state, proceed
-        if (!hasCredentialErrors && !hasEducationErrors && !hasExperienceErrors && !hasSkillsErrors && !hasCertificationErrors) {
-            setShowResumeFormats(true);
-        } else {
-            // If there are errors, show error message
-            setErrorMessage(true);
-            setTimeout(() => {
-                setErrorMessage(false);
-            }, 20000);
-        }
+        console.log('errorResponses:', err);
+        console.log('resumeCredentials:', cred);
     };
+    
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    
+    //     // Check for errors in each state
+    //     const hasCredentialErrors = Object.keys(errorResponses).some(field => {
+    //         const errorMessage = errorResponses[field];
+    //         console.log('Error Message (Credentials):', errorMessage);
+    //         return errorMessage.trim() !== '';
+    //     });
+        
+    //     const hasEducationErrors = educationSections.some(section => (
+    //         Object.keys(section.errors).some(field => {
+    //             const errorMessage = section.errors[field];
+    //             return errorMessage.trim() !== '';
+    //         })
+    //     ));
+        
+    //     const hasExperienceErrors = experienceSections.some(section => (
+    //         Object.keys(section.errors).some(field => {
+    //             const errorMessage = String(section.errors[field]);
+    //             return errorMessage.trim() !== '';
+    //         })
+    //     ));
+        
+    //     const hasSkillsErrors = skills.some(skill => (
+    //         skill.error.trim() !== ''
+    //     ));
+        
+    //     const hasCertificationErrors = certifications.some(certification => (
+    //         Object.keys(certification.errors).some(field => {
+    //             const errorMessage = certification.errors[field];
+    //             return errorMessage.trim() !== '';
+    //         })
+    //     ));
+    
+    //     // Log errors for each state
+    //     console.log('Credential Errors:', hasCredentialErrors);
+    //     console.log('Education Errors:', hasEducationErrors);
+    //     console.log('Experience Errors:', hasExperienceErrors);
+    //     console.log('Skills Errors:', hasSkillsErrors);
+    //     console.log('Certification Errors:', hasCertificationErrors);
+    
+    //     // If no errors in any state, proceed
+    //     if (!hasCredentialErrors && !hasEducationErrors && !hasExperienceErrors && !hasSkillsErrors && !hasCertificationErrors) {
+    //         setShowResumeFormats(true);
+    //     } else {
+    //         // If there are errors, show error message
+    //         setErrorMessage(true);
+    //         setTimeout(() => {
+    //             setErrorMessage(false);
+    //         }, 20000);
+    //     }
+    // };
 
     const clearResume = () => {
         localStorage.removeItem('resumeCredentials');
@@ -175,7 +184,11 @@ export default function Category({
                     handleTemplates={handleTemplates} 
                     backToTemplates={closeTemplate}
                     handleOutsideClick={handleOutsideClick}
-                    
+                    resumeCredentials={resumeCredentials}
+                    educationSections={educationSections}
+                    experienceSections={experienceSections}
+                    skills={skills}
+                    certifications={certifications}
                 />
         }
         {

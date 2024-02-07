@@ -122,6 +122,7 @@ export default function EducationFunction() {
 
     return {
         educationSections,
+        setEducationSections,
         handleEducationChange,
         addEducationSection,
         deleteEducationSection,

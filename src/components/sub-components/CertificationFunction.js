@@ -124,6 +124,7 @@ export default function CertificationFunction() {
 
     return { 
         certifications, 
+        setCertifications,
         handleAdd, 
         handleRemove, 
         handleChange, 
