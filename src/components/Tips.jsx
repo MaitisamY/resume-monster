@@ -71,7 +71,7 @@ export default function Tips({ title }) {
                                 <li>Summary should be between 100 and 1000 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('experienceDesignation') ? (
+                    ) : title === 'experienceDesignation' ? (
                         <>
                             <h3>Designation</h3>
                             <ol className="text-white">
@@ -80,7 +80,7 @@ export default function Tips({ title }) {
                                 <li>Designation must be between 6 and 30 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('experienceCompany') ? (
+                    ) : title === 'experienceCompany' ? (
                         <>
                             <h3>Company</h3>
                             <ol className="text-white">
@@ -89,7 +89,7 @@ export default function Tips({ title }) {
                                 <li>Company Name must be between 6 and 30 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('experienceDuration') ? (
+                    ) : title === 'experienceDuration' ? (
                         <>
                             <h3>Duration</h3>
                             <ol className="text-white">
@@ -98,77 +98,81 @@ export default function Tips({ title }) {
                                 <li>How long have you worked or have been working here.</li>
                             </ol>
                         </>
-                    ) : title.includes('experienceFrom') ? (
+                    ) : title === 'experienceFrom' ? (
                         <>
                             <h3>Year From</h3>
                             <ol className="text-white">
-                                <li>From date is optional.</li>
-                                <li>Select the date.</li>
+                                <li>Year From is optional.</li>
+                                <li>Should be between 2 and 4</li>
                                 <li>When did the experience start?</li>
                             </ol>
                         </>
-                    ) : title.includes('experienceTo') ? (
+                    ) : title === 'experienceTo' ? (
                         <>
                             <h3>Year To</h3>
                             <ol className="text-white">
-                                <li>To date is optional.</li>
-                                <li>Select the date.</li>
+                                <li>Year To is optional.</li>
+                                <li>Should be between 2 and 4</li>
                                 <li>When did the experience end?</li>
                             </ol>
                         </>
-                    ) : title.includes('content') ? (
+                    ) : title === 'content' ? (
                         <>
                             <h3>Details</h3>
                             <ol className="text-white">
                                 <li>Details are optional.</li>
                                 <li>You can add details of your experience.</li>
                                 <li>What were your responsibilities?</li>
+                                <li>Detail should be between 25 and 250 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('institution') ? (
+                    ) : title === 'institution' ? (
                         <>
                             <h3>Institution</h3>
                             <ol className="text-white">
-                                <li>Institution is must to enter.</li>
+                                <li>Institution is optional.</li>
                                 <li>Institution can be alphanumeric.</li>
                                 <li>Institution must be between 6 and 30 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('degree') ? (
+                    ) : title === 'degree' ? (
                         <>
                             <h3>Degree</h3>
                             <ol className="text-white">
-                                <li>Degree is must to enter.</li>
+                                <li>Degree is optional.</li>
                                 <li>Degree can be alphanumeric.</li>
                                 <li>Degree must be between 6 and 30 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('startYear') ? (
+                    ) : title === 'startYear' ? (
                         <>
                             <h3>Start Year</h3>
                             <ol className="text-white">
                                 <li>Start Year is optional.</li>
+                                <li>Should be between 2 and 4</li>
                                 <li>When did you start your degree / course?</li>
                             </ol>
                         </>
-                    ) : title.includes('endYear') ? (
+                    ) : title === 'endYear' ? (
                         <>
                             <h3>End Year</h3>
                             <ol className="text-white">
                                 <li>End Year is optional.</li>
+                                <li>Should be between 2 and 4</li>
                                 <li>When did you end your degree / course?</li>
                             </ol>
                         </>
-                    ) : title.includes('skill') ? (
+                    ) : title === 'skill' ? (
                         <>
                             <h3>Skills</h3>
                             <ol className="text-white">
                                 <li>Skills are optional.</li>
                                 <li>What skills do you have?</li>
                                 <li>Showcase your skills so that recruiters can easily know what you bring to the table.</li>
+                                <li>Skill must be between 10 and 100 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('institute') ? (
+                    ) : title === 'institute' ? (
                         <>
                             <h3>Institute Name</h3>
                             <ol className="text-white">
@@ -177,7 +181,7 @@ export default function Tips({ title }) {
                                 <li>Institute must be between 3 and 25 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('certificate') ? (
+                    ) : title === 'certification' ? (
                         <>
                             <h3>Certificate Title</h3>
                             <ol className="text-white">
@@ -186,19 +190,21 @@ export default function Tips({ title }) {
                                 <li>Certification must be between 3 and 25 characters.</li>
                             </ol>
                         </>
-                    ) : title.includes('yearStartFrom') ? (
+                    ) : title === 'yearStartFrom' ? (
                         <>
                             <h3>Start Year</h3>
                             <ol className="text-white">
                                 <li>Start Year is optional.</li>
+                                <li>Year From should be between 2 and 4</li>
                                 <li>When did you start your certification?</li>
                             </ol>
                         </>
-                    ) : title.includes('yearEndTo') ? (
+                    ) : title === 'yearEndTo' ? (
                         <>
-                            <h3>End Year</h3>
+                            <h3>Year To</h3>
                             <ol className="text-white">
-                                <li>End Year is optional.</li>
+                                <li>Year To is optional.</li>
+                                <li>Year To should be between 2 and 4</li>
                                 <li>When did you end your certification?</li>
                             </ol>
                         </>

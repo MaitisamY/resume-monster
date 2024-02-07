@@ -1,49 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 
 export default function ExperienceFunction() {
-    const [experienceSections, setExperienceSections] = useState([
-        {
-          id: 1,
-          experienceDesignation: '',
-          experienceCompany: '',
-          experienceDuration: '',
-          experienceFrom: '',
-          experienceTo: '',
-          experienceDescription: [
-          { 
-            id: 1, 
-            content: '', 
+  const [experienceSections, setExperienceSections] = useState(() => {
+      const storedExperienceSections = localStorage.getItem('experienceSections');
+      return storedExperienceSections ? JSON.parse(storedExperienceSections) : [
+          {
+              id: uuid(),
+              experienceDesignation: '',
+              experienceCompany: '',
+              experienceDuration: '',
+              experienceFrom: '',
+              experienceTo: '',
+              experienceDescription: [{ id: uuid(), content: '', }],
+              errors: {
+                  experienceDesignation: '',
+                  experienceCompany: '',
+                  experienceDuration: '',
+                  experienceFrom: '',
+                  experienceTo: '',
+                  experienceDescription: [{ id: uuid(), content: '', }],
+              },
           },
-        ],
-          errors: {
-            experienceDesignation: '',
-            experienceCompany: '',
-            experienceDuration: '',
-            experienceFrom: '',
-            experienceTo: '',
-          },
-        },
-    ]);
-
-    // const handleFormatting = (formatType) => {
-    //     document.execCommand(formatType, false, null);
-    // };
-
-    // const handleCardChange = (experienceId, cardId, content) => {
-    //     setExperienceSections((prevSections) =>
-    //       prevSections.map((section) =>
-    //         section.id === experienceId
-    //           ? {
-    //               ...section,
-    //               experienceDescription: section.experienceDescription.map((card) =>
-    //                 card.id === cardId ? { ...card, content } : card
-    //               ),
-    //             }
-    //           : section
-    //       )
-    //     );
-    // };
+      ];
+  });
   
     const addCard = (experienceId) => {
         setExperienceSections((prevSections) =>
@@ -74,7 +54,7 @@ export default function ExperienceFunction() {
         );
     };
     
-    const handleExperienceChange = (sectionId, field, value, cardId) => {
+    const handleExperienceChange = (sectionId, name, value, cardId) => {
         setExperienceSections((prevSections) =>
           prevSections.map((section) =>
             section.id === sectionId
@@ -85,7 +65,7 @@ export default function ExperienceFunction() {
                       card.id === cardId ? { ...card, content: value } : card
                     ),
                   }
-                : { ...section, [field]: value }
+                : { ...section, [name]: value }
               : section
           )
         );
@@ -107,15 +87,12 @@ export default function ExperienceFunction() {
         }
     };
     
-    const addExperienceSection = (sectionId) => {
+    const addExperienceSection = () => {
         setExperienceSections((prevSections) => {
-            const maxId = Math.max(...prevSections.map((section) => section.id), 0);
-            const newId = maxId + 1;
-    
             return [
                 ...prevSections,
                 {
-                    id: newId,
+                    id: uuid(),
                     experienceDesignation: '',
                     experienceCompany: '',
                     experienceDuration: '',
@@ -123,7 +100,7 @@ export default function ExperienceFunction() {
                     experienceTo: '',
                     experienceDescription: [
                       { 
-                        id: 1, 
+                        id: uuid(), 
                         content: '', 
                       },
                     ],
@@ -133,6 +110,12 @@ export default function ExperienceFunction() {
                       experienceDuration: '',
                       experienceFrom: '',
                       experienceTo: '',
+                      experienceDescription: [
+                        {
+                          id: uuid(),
+                          content: '',
+                        }
+                      ]
                     },
                 },
             ];
@@ -147,21 +130,7 @@ export default function ExperienceFunction() {
                   ...section,
                   errors: {
                     ...section.errors,
-                    [name]: value.trim() === '' ? `
-                        ${
-                            name === 'experienceDesignation' 
-                            ? 'Designation is empty' 
-                            : name === 'experienceCompany' 
-                            ? 'Company name is empty' 
-                            : name === 'experienceDuration'
-                            ? 'Duration is empty'
-                            : name === 'experienceFrom'
-                            ? 'Start Year is empty'
-                            : name === 'experienceTo'
-                            ? 'End Year is empty'
-                            : ''
-                        }` 
-                    : validateField(name, value),
+                    [name]: validateField(name, value),
                   },
                 }
               : section
@@ -174,27 +143,35 @@ export default function ExperienceFunction() {
           case 'experienceDesignation':
             return value.length < 3 || value.length > 20
               ? 'Designation should be between 3 and 20'
-              : '';
+              : ''
           case 'experienceCompany':
             return value.length < 3 || value.length > 20
               ? 'Degree should be between 3 and 20'
-              : '';
+              : ''
           case 'experienceDuration':
             return value.length < 2 || value.length > 8
               ? 'Duration should be between 2 and 8'
-              : '';
+              : ''
           case 'experienceFrom':
             return value.length < 2 || value.length > 4
               ? 'Start Year should be between 2 and 4'
-              : '';
+              : ''
           case 'experienceTo':
             return value.length < 2 || value.length > 4
               ? 'End Year should be between 2 and 4'
-              : '';
+              : ''
+          case 'experienceDescription':
+            return value.length < 2 || value.length > 4
+              ? 'End Year should be between 2 and 4'
+              : ''
           default:
-            return '';
+            return ''
         }
     };
+
+    useEffect(() => {
+        localStorage.setItem('experienceSections', JSON.stringify(experienceSections));
+    }, [experienceSections]);
 
     return {
         experienceSections,

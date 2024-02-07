@@ -117,6 +117,19 @@ export default function CredentialFunction() {
         }));
     };
 
+    const clearCredentialForm = () => {
+        localStorage.removeItem('resumeCredentials');
+        setResumeCredentials({
+            firstName: '',
+            lastName: '',
+            designation: '',
+            email: '',
+            phoneNumber: '',
+            address: '',
+            summary: '',
+        });
+    }
+
     useEffect(() => {
         localStorage.setItem('resumeCredentials', JSON.stringify(resumeCredentials));
     }, [resumeCredentials]);
@@ -124,6 +137,7 @@ export default function CredentialFunction() {
     return { 
         errorResponses,
         resumeCredentials,
+        clearCredentialForm,
         validateField, 
         handleResumeCredentials,
     }

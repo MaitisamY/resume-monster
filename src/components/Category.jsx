@@ -96,21 +96,72 @@ export default function Category({
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // if (
-        //     errorResponses.length < 1 && educationSections.errors.length < 1 && experienceSections.errors.length < 1 &&
-        //     resumeCredentials.errors.length < 1 && skills.errors.length < 1 && certifications.errors.length < 1
-        //     )
-        // {
-        //     setShowResumeFormats(true);
-        // } else {
-        //     setErrorMessage(true);
-        //     setTimeout(() => {
-        //         setErrorMessage(false);
-        //     }, 20000);
-        // }
-
-        setShowResumeFormats(true);
+    
+        // Check for errors in each state
+        const hasCredentialErrors = Object.keys(errorResponses).some(field => {
+            const errorMessage = errorResponses[field];
+            console.log('Error Message:', errorMessage);
+            return errorMessage.trim() !== '' && errorMessage.trim() !== null;
+        });
+        
+        const hasEducationErrors = educationSections.some(section => (
+            Object.keys(section.errors).some(field => {
+                const errorMessage = section.errors[field];
+                return errorMessage.trim() !== '';
+            })
+        ));
+        
+        const hasExperienceErrors = experienceSections.some(section => (
+            Object.keys(section.errors).some(field => {
+                const errorMessage = section.errors[field];
+                return errorMessage.trim() !== '';
+            })
+        ));
+        
+        const hasSkillsErrors = skills.some(skill => (
+            Object.keys(skill.errors).some(field => {
+                const errorMessage = skill.errors[field];
+                return errorMessage.trim() !== '';
+            })
+        ));
+        
+        const hasCertificationErrors = certifications.some(certification => (
+            Object.keys(certification.errors).some(field => {
+                const errorMessage = certification.errors[field];
+                return errorMessage.trim() !== '';
+            })
+        ));
+    
+        // Log errors for each state
+        console.log('Credential Errors:', hasCredentialErrors);
+        console.log('Education Errors:', hasEducationErrors);
+        console.log('Experience Errors:', hasExperienceErrors);
+        console.log('Skills Errors:', hasSkillsErrors);
+        console.log('Certification Errors:', hasCertificationErrors);
+    
+        // If no errors in any state, proceed
+        if (!hasCredentialErrors && !hasEducationErrors && !hasExperienceErrors && !hasSkillsErrors && !hasCertificationErrors) {
+            setShowResumeFormats(true);
+        } else {
+            // If there are errors, show error message
+            setErrorMessage(true);
+            setTimeout(() => {
+                setErrorMessage(false);
+            }, 20000);
+        }
     };
+
+    const clearResume = () => {
+        localStorage.removeItem('resumeCredentials');
+        localStorage.removeItem('educationSections');
+        localStorage.removeItem('experienceSections');
+        localStorage.removeItem('skills');
+        localStorage.removeItem('certifications');
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 500);
+    }
 
     return (
         <>
@@ -224,6 +275,15 @@ export default function Category({
                                     type="submit"
                                 >
                                     Build Up
+                                </button>
+                            </div>
+                            <div className="input-group">
+                                <button 
+                                    className="clear-btn cursor-pointer smooth-transition font-work-sans" 
+                                    type="button"
+                                    onClick={clearResume}
+                                >
+                                    Clear Form
                                 </button>
                             </div>
                         </div>  

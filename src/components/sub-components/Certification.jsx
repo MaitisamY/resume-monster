@@ -20,7 +20,7 @@ export default function Certification({ handleShowTips }) {
         </div>
         {certifications.map((section, index) => (
             <div 
-              id={`certification_${section.id}`}
+              id={`certifications_${section.id}`}
               key={section.id} 
               className={`certification-section-wrapper 
               ${certifications.length > 1 ? 'border border-radius-10 border-dull mb-15 ml-25 smooth-transition pr-15' : ''}`}
@@ -45,7 +45,7 @@ export default function Certification({ handleShowTips }) {
                 <div className="input-group">
                   <label className="font-work-sans">Institute Name</label>
                   <input
-                      name={`institute_${section.id}`}
+                      name="institute"
                       value={section.institute}
                       className="font-work-sans"
                       type="text"
@@ -66,7 +66,7 @@ export default function Certification({ handleShowTips }) {
                 <div className="input-group">
                   <label className="font-work-sans">Certificate Title</label>
                   <input
-                      name={`certificate_${section.id}`}
+                      name="certification"
                       value={section.certification}
                       className="font-work-sans"
                       type="text"
@@ -89,15 +89,11 @@ export default function Certification({ handleShowTips }) {
                 <div className="input-group">
                   <label className="font-work-sans">Year From</label>
                   <input
-                      name={`yearFrom_${section.id}`}
+                      name="yearFrom"
                       value={section.yearFrom}
                       className="font-work-sans"
                       type="text"
                       placeholder="E.g. 2019"
-                      min={2}
-                      max={4}
-                      minLength={2}
-                      maxLength={4}
                       onChange={(e) => handleChange(section.id, e.target.name, e.target.value)}
                       onBlur={(e) => validateCertificationSection(section.id, e.target.name, e.target.value)}
                       onFocus={(e) => handleShowTips('yearStartFrom')}
@@ -114,15 +110,11 @@ export default function Certification({ handleShowTips }) {
                 <div className="input-group">
                   <label className="font-work-sans">Year To</label>
                   <input
-                      name={`yearTo_${section.id}`}
+                      name="yearTo"
                       value={section.yearTo}
                       className="font-work-sans"
                       type="text"
                       placeholder="E.g. 2022"
-                      min={2}
-                      max={4}
-                      minLength={2}
-                      maxLength={4}
                       onChange={(e) => handleChange(section.id, e.target.name, e.target.value)}
                       onBlur={(e) => validateCertificationSection(section.id, e.target.name, e.target.value)}
                       onFocus={(e) => handleShowTips('yearEndTo')}

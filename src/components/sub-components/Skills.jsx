@@ -23,14 +23,14 @@ export default function Skills({ handleShowTips }) {
         {skills.map((skill, index) => (
             <div className="row">
                 <ol className="w-100 pl-20">
-                    <li key={skill.id} value={index + 1} className="text-white">
+                    <li id={`skills_${skill.id}`} key={skill.id} value={index + 1} className="text-white">
                     <input
-                        name={`skill_${skill.id}`}
+                        name="skill"
                         value={skill.skill}
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. Time Management."
-                        onBlur={(e) => validateSkillsSection(skill.id, `skill_${skill.id}`, e.target.value)}
+                        onBlur={(e) => validateSkillsSection(skill.id, e.target.name, e.target.value)}
                         onChange={(e) => handleChange(skill.id, e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
                         onMouseEnter={(e) => handleShowTips(e.target.name)}
@@ -39,8 +39,8 @@ export default function Skills({ handleShowTips }) {
                         autoComplete="off"
                         spellCheck="false"
                     />
-                    {skill.errors && (
-                        <p className="text-danger">{skill.errors.skill}</p>
+                    {skill.error && (
+                        <p className="text-danger pl-20 pt-5">{skill.error}</p>
                     )}
                     </li>
                 </ol>

@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 import './ShowResumeFormats.css'
-import { BsXLg, BsArrowLeft, BsPrinter } from 'react-icons/bs'
+import { BsXLg, BsArrowLeft, BsPrinter, BsDownload } from 'react-icons/bs'
 import CLASSIC from '../../assets/classic.jpg';
 import CONTEMPORARY from '../../assets/contemporary.jpg';
 import MINIMALIST from '../../assets/minimalist.jpg';
@@ -32,6 +32,13 @@ export default function ShowResumeFormats({
         window.print();
     };
 
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.download = 'resume.pdf';
+        link.href = 'resume.pdf';
+        link.click();
+    }
+
     return (
         <div id="resume-formats-popup" className="resume-formats-popup" onClick={handleOutsideClick}>
             <button className="close" onClick={closePopup}><BsXLg /></button>
@@ -44,7 +51,10 @@ export default function ShowResumeFormats({
                 finalResume ? (
                     <>
                         <button className="back" onClick={() => setFinalResume(false)}><BsArrowLeft /></button>
-                        <button className="print" onClick={handlePrint}><BsPrinter /></button>
+                        <div className="print-download">
+                            <button className="download" onClick={handleDownload}><BsDownload /></button>
+                            <button className="print" onClick={handlePrint}><BsPrinter /></button>
+                        </div>
                         <Classic />
                     </>
                 ) : !templates ? (

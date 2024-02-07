@@ -46,13 +46,13 @@ export default function Education({ handleShowTips }) {
                 <div className="input-group">
                   <label className="font-work-sans">Institution</label>
                   <input
-                      name={`institution_${section.id}`}
+                      name="institution"
                       value={section.institution}
                       className="font-work-sans"
                       type="text"
                       placeholder="E.g. University of Karachi"
-                      onChange={(e) => handleEducationChange(section.id, 'institution', e.target.value)}
-                      onBlur={(e) => validateEducationField(section.id, 'institution', e.target.value)}
+                      onChange={(e) => handleEducationChange(section.id, e.target.name, e.target.value)}
+                      onBlur={(e) => validateEducationField(section.id, e.target.name, e.target.value)}
                       onFocus={(e) => handleShowTips(e.target.name)}
                       onMouseEnter={(e) => handleShowTips(e.target.name)}
                       onMouseLeave={() => handleShowTips(null)}
@@ -67,13 +67,13 @@ export default function Education({ handleShowTips }) {
                 <div className="input-group">
                   <label className="font-work-sans">Degree / Course</label>
                   <input
-                      name={`degree_${section.id}`}
+                      name="degree"
                       value={section.degree}
                       className="font-work-sans"
                       type="text"
                       placeholder="E.g. Bachelor of Science"
-                      onChange={(e) => handleEducationChange(section.id, 'degree', e.target.value)}
-                      onBlur={(e) => validateEducationField(section.id, 'degree', e.target.value)}
+                      onChange={(e) => handleEducationChange(section.id, e.target.name, e.target.value)}
+                      onBlur={(e) => validateEducationField(section.id, e.target.name, e.target.value)}
                       onFocus={(e) => handleShowTips(e.target.name)}
                       onMouseEnter={(e) => handleShowTips(e.target.name)}
                       onMouseLeave={() => handleShowTips(null)}
@@ -95,10 +95,6 @@ export default function Education({ handleShowTips }) {
                       className="font-work-sans"
                       type="text"
                       placeholder="E.g. 2019"
-                      min={2}
-                      max={4}
-                      minLength={2}
-                      maxLength={4}
                       onChange={(e) => handleEducationChange(section.id, 'startYear', e.target.value)}
                       onBlur={(e) => validateEducationField(section.id, 'startYear', e.target.value)}
                       onFocus={(e) => handleShowTips(e.target.name)}
@@ -120,10 +116,6 @@ export default function Education({ handleShowTips }) {
                       className="font-work-sans"
                       type="text"
                       placeholder="E.g. 2022"
-                      min={2}
-                      max={4}
-                      minLength={2}
-                      maxLength={4}
                       onChange={(e) => handleEducationChange(section.id, 'endYear', e.target.value)}
                       onBlur={(e) => validateEducationField(section.id, 'endYear', e.target.value)}
                       onFocus={(e) => handleShowTips(e.target.name)}

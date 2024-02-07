@@ -576,11 +576,13 @@
 }
 
 .build-btn {
+    width: 100%;
     padding: 10px 50px;
     margin: 50px 0 25px 0;
     font-size: 20px;
     border: none;
     border-radius: 10px;
+    font-weight: 500;
     color: #fff;
     background-color: rgba(46, 100, 255, 1);
     box-shadow: 0 0 2px rgba(46, 100, 255, 1);
@@ -593,10 +595,34 @@
     background-color: #242323;
 }
 
+.clear-btn {
+    width: 100%;
+    padding: 10px 50px;
+    margin: 50px 0 25px 0;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    color: #242424;
+    background-color: #fff;
+    box-shadow: 0 0 2px #fff;
+    outline: 1px solid #fff;
+}
+
+.clear-btn:hover {
+    box-shadow: 0 0 2px #fff;
+    outline: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+}
+
 @media screen and (max-width: 768px) {
     .build-btn {
-        width: 90%;
+        width: 80%;
         margin: 50px 0 0 0;
+    }
+    .clear-btn {
+        width: 80%;
     }
 }
 

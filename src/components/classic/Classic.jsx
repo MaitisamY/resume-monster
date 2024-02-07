@@ -7,7 +7,6 @@ import './classic.css'
 import CELL from '../../assets/icons/cell.png'
 import EMAIL from '../../assets/icons/email.png'
 import ADDRESS from '../../assets/icons/address.png'
-import { BsPrinter } from 'react-icons/bs'
 import CredentialFunction from '../sub-components/CredentialFunction'
 import EducationFunction from '../sub-components/EducationFunction'
 import ExperienceFunction from '../sub-components/ExperienceFunction'
@@ -48,7 +47,7 @@ export default function Classic() {
                         </div>
                         <div className="details">
                             <p>
-                                <small className="font-lora">{resumeCredentials && resumeCredentials.phoneNumber}</small>
+                                <small className="font-lora">{resumeCredentials && `+${resumeCredentials.phoneNumber}`}</small>
                                 <img className="img" src={resumeCredentials && CELL} alt="cell" width={30} />
                             </p>
                             <p>

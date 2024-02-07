@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 
 export default function SkillsFunction() {
-    const [skills, setSkills] = useState([
-        { 
-            id: 1, 
-            skill: '',
-            errors: { skill: '' } 
-        },
-    ]);
+    const [skills, setSkills] = useState(() => {
+        const storedSkills = localStorage.getItem('skills');
+        return storedSkills ? JSON.parse(storedSkills) : [
+            { 
+                id: uuid(), 
+                skill: '', 
+                error: '' 
+            },
+        ];
+    });
 
     const handleAdd = () => {
         setSkills((prevSkills) => {
@@ -17,15 +20,26 @@ export default function SkillsFunction() {
                 {
                     id: uuid(),
                     skill: '',
-                    errors: { skill: '' },
+                    error: '',
                 },
             ]
         })
     }
 
     const handleRemove = (id) => {
-        const newSkills = skills.filter((skill) => skill.id !== id)
-        setSkills(newSkills)
+        const sectionElement = document.getElementById(`skills_${id}`);
+    
+        if (sectionElement) {
+            sectionElement.style.transition = 'opacity 0.5s ease-out';
+            sectionElement.style.opacity = '0';
+        
+            setTimeout(() => {
+            setSkills((prevSkills) => {
+                const newSkills = prevSkills.filter((skill) => skill.id !== id);
+                return newSkills;
+            });
+            }, 500);
+        }
     }
 
     const handleChange = (id, value) => {
@@ -38,11 +52,11 @@ export default function SkillsFunction() {
 
     const validateField = (name, value) => {
         switch (name) {
-            case 'skills':
+            case 'skill':
                 return value.length === 0
-                    ? 'Skill is required'
-                    : value.length < 10 || value.length > 80
-                    ? 'Skills should be between 10 and 80'
+                    ? 'Skill is empty'
+                    : value.length < 10 || value.length > 100
+                    ? 'Skill should be between 10 and 100 characters'
                     : ''
             default:
                 return ''
@@ -55,15 +69,16 @@ export default function SkillsFunction() {
                 return skill.id === sectionId
                     ? {
                         ...skill,
-                        errors: {
-                            ...skill.errors,
-                            [name]: validateField(name, value),
-                        },
+                        error: validateField(name, value),
                     }
                     : skill
             })
         })
     };
+
+    useEffect(() => {
+        localStorage.setItem('skills', JSON.stringify(skills));
+    }, [skills]);
 
     return {
         skills,

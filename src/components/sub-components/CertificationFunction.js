@@ -1,20 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 
 export default function CertificationFunction() {
-    const [certifications, setCertifications] = useState([
-        {
-            id: 1,
-            institute: '',
-            certification: '',
-            yearFrom: '',
-            yearTo: '',
-            errors: {
+    const [certifications, setCertifications] = useState(() => {
+        const storedCertifications = localStorage.getItem('certifications');
+        return storedCertifications ? JSON.parse(storedCertifications) : [
+            {
+                id: uuid(),
                 institute: '',
                 certification: '',
-            }
-        }
-    ]);
+                yearFrom: '',
+                yearTo: '',
+                errors: {
+                    institute: '',
+                    certification: '',
+                    yearFrom: '',
+                    yearTo: '',
+                },
+            },
+        ];
+    });
     
     const handleAdd = () => {
         setCertifications((prevCertifications) => {
@@ -29,6 +34,8 @@ export default function CertificationFunction() {
                     errors: {
                         institute: '',
                         certification: '',
+                        yearFrom: '',
+                        yearTo: '',
                     }
                 }
             ]
@@ -36,8 +43,19 @@ export default function CertificationFunction() {
     }
     
     const handleRemove = (id) => {
-        const newCertifications = certifications.filter((certification) => certification.id !== id)
-        setCertifications(newCertifications)
+        const sectionElement = document.getElementById(`certifications_${id}`);
+    
+        if (sectionElement) {
+            sectionElement.style.transition = 'opacity 0.5s ease-out';
+            sectionElement.style.opacity = '0';
+        
+            setTimeout(() => {
+            setCertifications((prevCertifications) => {
+                const newCertifications = prevCertifications.filter((certification) => certification.id !== id);
+                return newCertifications;
+            });
+            }, 500);
+        }
     }
     
     const handleChange = (id, name, value) => {
@@ -46,10 +64,7 @@ export default function CertificationFunction() {
             certificate.id === id
               ? {
                   ...certificate,
-                  [name.startsWith('institute') ? 'institute' : 
-                    name.startsWith('certificate') ? 'certification' : 
-                        name.startsWith('yearFrom') ? 'yearFrom' : 
-                            name.startsWith('yearTo') ? 'yearTo' : name]: value,
+                  [name]: value,
                 }
               : certificate
           )
@@ -78,18 +93,34 @@ export default function CertificationFunction() {
                 return value.length === 0
                     ? 'Institute name is empty'
                     : value.length < 3 || value.length > 25
-                    ? 'Institute name should be between 3 and 20'
+                    ? 'Institute name should be between 3 and 20 characters'
                     : ''
             case 'certification':
                 return value.length === 0
                     ? 'Certification is empty'
                     : value.length < 3 || value.length > 25
-                    ? 'Certification should be between 3 and 25'
+                    ? 'Certification should be between 3 and 25 characters'
+                    : ''
+            case 'yearFrom':
+                return value.length === 0
+                    ? 'Start year is empty'
+                    : value.length < 2 || value.length > 4
+                    ? 'From Year should be between 2 and 4'
+                    : ''
+            case 'yearTo':
+                return value.length === 0
+                    ? 'Year to is empty'
+                    : value.length < 2 || value.length > 4
+                    ? 'Year To should be between 2 and 4'
                     : ''
             default:
                 return ''
         }
     }
+
+    useEffect(() => {
+        localStorage.setItem('certifications', JSON.stringify(certifications));
+    }, [certifications]);
 
     return { 
         certifications, 

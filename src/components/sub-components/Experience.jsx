@@ -126,10 +126,6 @@ export default function Experience({ handleShowTips }) {
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. 2019"
-                        min={2}
-                        max={4}
-                        minLength={2}
-                        maxLength={4}
                         onBlur={(e) => validateExperienceField(section.id, 'experienceFrom', e.target.value)}
                         onChange={(e) => handleExperienceChange(section.id, 'experienceFrom', e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
@@ -151,10 +147,6 @@ export default function Experience({ handleShowTips }) {
                         className="font-work-sans"
                         type="text"
                         placeholder="E.g. 2022"
-                        min={2}
-                        max={4}
-                        minLength={2}
-                        maxLength={4}
                         onBlur={(e) => validateExperienceField(section.id, 'experienceTo', e.target.value)}
                         onChange={(e) => handleExperienceChange(section.id, 'experienceTo', e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}
@@ -179,13 +171,13 @@ export default function Experience({ handleShowTips }) {
                     <ol className="w-100 pl-20">
                         <li key={card.id} value={index + 1} className="text-white">
                             <input
-                                name={`content_${card.id}`}
+                                name="content"
                                 value={card.content}
                                 className="font-work-sans"
                                 type="text"
                                 placeholder="E.g. Worked on multiple projects."
-                                onBlur={(e) => validateExperienceField(section.id, `content_${card.id}`, e.target.value)}
-                                onChange={(e) => handleExperienceChange(section.id, `content_${card.id}`, e.target.value, card.id)}
+                                onBlur={(e) => validateExperienceField(section.id, e.target.name, e.target.value, card.id)}
+                                onChange={(e) => handleExperienceChange(section.id, e.target.name, e.target.value, card.id)}
                                 onFocus={(e) => handleShowTips(e.target.name)}
                                 onMouseEnter={(e) => handleShowTips(e.target.name)}
                                 onMouseLeave={() => handleShowTips(null)}
@@ -194,6 +186,11 @@ export default function Experience({ handleShowTips }) {
                                 spellCheck="false"
                             />
                         </li>
+                        {section.errors.experienceDescription && 
+                            <p className="text-danger pl-20">
+                                {section.errors.experienceDescription.filter((error) => error.id === card.id)[0].content}
+                            </p>
+                        }
                     </ol>
                     {card.id !== 1 && (
                         <button 

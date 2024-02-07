@@ -102,7 +102,7 @@ export default function Credentials({ handleShowTips }) {
                         value={resumeCredentials.phoneNumber}
                         className="font-work-sans" 
                         type="tel" 
-                        placeholder="E.g. +923109234567" 
+                        placeholder="E.g. 923109234567" 
                         onChange={handleResumeCredentials}
                         onBlur={(e) => validateField(e.target.name, e.target.value)}
                         onFocus={(e) => handleShowTips(e.target.name)}

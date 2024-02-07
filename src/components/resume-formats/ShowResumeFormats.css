@@ -177,10 +177,34 @@
     padding: 0;
 }
 
-.print {
+.print-download {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    gap: 20px;
     position: absolute;
     top: 15px;
     right: 30px;
+}
+
+.print {
+    border: none;
+    background-color: transparent;
+    font-family: 'Work Sans', sans-serif;
+    color: #545454;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 0;
+}
+
+.download {
     border: none;
     background-color: transparent;
     font-family: 'Work Sans', sans-serif;
@@ -230,10 +254,7 @@
     .resume-formats {
         box-shadow: none;
     }
-    .back {
-        display: none;
-    }
-    .print {
+    .print-download {
         display: none;
     }
 }

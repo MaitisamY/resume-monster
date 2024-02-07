@@ -12,6 +12,14 @@ export default function Home() {
         handleToast,
         handleDoNotShowAgain,
     } = Functions();
+
+    const clearResume = () => {
+        localStorage.removeItem('resumeCredentials');
+        localStorage.removeItem('educationSections');
+        localStorage.removeItem('experienceSections');
+        localStorage.removeItem('skills');
+        localStorage.removeItem('certifications');
+    }
     
     // localStorage.removeItem('selectedCategory');
     // localStorage.removeItem('toast');
@@ -31,7 +39,7 @@ export default function Home() {
                     <div>
                         <div className="navigator">
                             <button className="home-btn cursor-pointer pr-15 pl-15 py-5 text-white" 
-                                onClick={() => getStarted(0)}> 
+                                onClick={() => (getStarted(0), clearResume())}> 
                                 <BsArrowLeft /> Home 
                             </button>
                                 &nbsp;
