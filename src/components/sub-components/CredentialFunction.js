@@ -101,8 +101,8 @@ export default function CredentialFunction() {
           case 'summary':
             if (value.trim() === '') {
               errors.summary = 'Summary is required';
-            } else if (value.length < 100 || value.length > 1000) {
-              errors.summary = 'Summary must be between 100 and 1000 characters';
+            } else if (value.length < 25 || value.length > 350) {
+              errors.summary = 'Summary must be between 25 and 350 characters';
             } else {
               errors.summary = '';
             }

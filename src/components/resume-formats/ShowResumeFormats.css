@@ -257,4 +257,7 @@
     .print-download {
         display: none;
     }
+    .back {
+        display: none;
+    }
 }

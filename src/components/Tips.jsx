@@ -12,7 +12,7 @@ export default function Tips({ title }) {
                             <ol className="text-white">
                                 <li>Your First Name is must to enter.</li>
                                 <li>First Name should contain only alphabets e.g. John.</li>
-                                <li>First Name must be between 3 and 30 characters.</li>
+                                <li>First Name must be between 3 and 15 characters.</li>
                             </ol>    
                         </>
                     ) : title === 'lastName' ? (
@@ -21,7 +21,7 @@ export default function Tips({ title }) {
                             <ol className="text-white">
                                 <li>Your Last Name is must to enter.</li>
                                 <li>Last Name should contain only alphabets e.g. Doe.</li>
-                                <li>Last Name must be between 3 and 30 characters.</li>
+                                <li>Last Name must be between 3 and 10 characters.</li>
                             </ol>    
                         </>
                     ) : title === 'designation' ? (
@@ -68,7 +68,7 @@ export default function Tips({ title }) {
                                 <li>Your Summary is must to enter.</li>
                                 <li>Write a brief summary of your experience, education and skills.</li>
                                 <li>Choose wise and simple words to describe yourself, your goals and the stuff you bring to the table.</li>
-                                <li>Summary should be between 100 and 1000 characters.</li>
+                                <li>Summary should be between 25 and 350 characters.</li>
                             </ol>
                         </>
                     ) : title === 'experienceDesignation' ? (
@@ -77,7 +77,7 @@ export default function Tips({ title }) {
                             <ol className="text-white">
                                 <li>Your Designation or Position is optional.</li>
                                 <li>Designation should contain only alphabets e.g. Frontend Developer.</li>
-                                <li>Designation must be between 6 and 30 characters.</li>
+                                <li>Designation must be between 3 and 30 characters.</li>
                             </ol>
                         </>
                     ) : title === 'experienceCompany' ? (
@@ -86,7 +86,7 @@ export default function Tips({ title }) {
                             <ol className="text-white">
                                 <li>The Company Name is optional.</li>
                                 <li>Company Name can be alphanumeric.</li>
-                                <li>Company Name must be between 6 and 30 characters.</li>
+                                <li>Company Name must be between 3 and 30 characters.</li>
                             </ol>
                         </>
                     ) : title === 'experienceDuration' ? (
@@ -96,6 +96,7 @@ export default function Tips({ title }) {
                                 <li>The Duration is optional.</li>
                                 <li>Duration can be alphanumeric.</li>
                                 <li>How long have you worked or have been working here.</li>
+                                <li>Duration must be between 5 and 10 characters.</li>
                             </ol>
                         </>
                     ) : title === 'experienceFrom' ? (
@@ -123,7 +124,7 @@ export default function Tips({ title }) {
                                 <li>Details are optional.</li>
                                 <li>You can add details of your experience.</li>
                                 <li>What were your responsibilities?</li>
-                                <li>Detail should be between 25 and 250 characters.</li>
+                                <li>Detail should be between 25 and 125 characters.</li>
                             </ol>
                         </>
                     ) : title === 'institution' ? (
@@ -169,7 +170,7 @@ export default function Tips({ title }) {
                                 <li>Skills are optional.</li>
                                 <li>What skills do you have?</li>
                                 <li>Showcase your skills so that recruiters can easily know what you bring to the table.</li>
-                                <li>Skill must be between 10 and 100 characters.</li>
+                                <li>Skill must be between 3 and 80 characters.</li>
                             </ol>
                         </>
                     ) : title === 'institute' ? (

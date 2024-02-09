@@ -90,13 +90,13 @@ export default function Education({ handleShowTips }) {
                 <div className="input-group">
                   <label className="font-work-sans">Year From</label>
                   <input
-                      name={`startYear_${section.id}`}
+                      name="startYear"
                       value={section.startYear}
                       className="font-work-sans"
                       type="text"
                       placeholder="E.g. 2019"
-                      onChange={(e) => handleEducationChange(section.id, 'startYear', e.target.value)}
-                      onBlur={(e) => validateEducationField(section.id, 'startYear', e.target.value)}
+                      onChange={(e) => handleEducationChange(section.id, e.target.name, e.target.value)}
+                      onBlur={(e) => validateEducationField(section.id, e.target.name, e.target.value)}
                       onFocus={(e) => handleShowTips(e.target.name)}
                       onMouseEnter={(e) => handleShowTips(e.target.name)}
                       onMouseLeave={() => handleShowTips(null)}
@@ -111,13 +111,13 @@ export default function Education({ handleShowTips }) {
                 <div className="input-group">
                   <label className="font-work-sans">Year To</label>
                   <input
-                      name={`endYear_${section.id}`}
+                      name="endYear"
                       value={section.endYear}
                       className="font-work-sans"
                       type="text"
                       placeholder="E.g. 2022"
-                      onChange={(e) => handleEducationChange(section.id, 'endYear', e.target.value)}
-                      onBlur={(e) => validateEducationField(section.id, 'endYear', e.target.value)}
+                      onChange={(e) => handleEducationChange(section.id, e.target.name, e.target.value)}
+                      onBlur={(e) => validateEducationField(section.id, e.target.name, e.target.value)}
                       onFocus={(e) => handleShowTips(e.target.name)}
                       onMouseEnter={(e) => handleShowTips(e.target.name)}
                       onMouseLeave={() => handleShowTips(null)}

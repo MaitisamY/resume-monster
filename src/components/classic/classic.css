@@ -76,7 +76,7 @@
 
 .template-box {
     position: relative;
-    margin: 30px 0 0 0;
+    margin: 50px 0 0 0;
 }
 
 .classic-view-header {
@@ -230,6 +230,7 @@
         justify-content: space-between;
         flex-wrap: nowrap;
         background-color: #dbd8d8;
+        gap: 20px;
     }
 
     .classic-view-header .name-designation {
@@ -243,11 +244,11 @@
     }
 
     .classic-view-header .name-designation p i {
-        font-size: 19px;
+        font-size: 18px;
     }
     
     .classic-view-header .name-designation p span {
-        font-size: 21px;
+        font-size: 20px;
     }
     
     .classic-view-header .name-designation p small {
@@ -270,12 +271,12 @@
     .classic-view-content h1 {
         width: 50%;
         text-align: center;
-        font-size: 21px;
+        font-size: 20px;
     }
     
     .classic-view-content p {
         width: 90%;
-        font-size: 14px;
+        font-size: 12px;
         margin-left: 5%;
     }
 }
@@ -298,8 +299,8 @@
     border-right: 2px solid #545454;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: start;
+    justify-content: start;
     gap: 20px;
     box-sizing: border-box;
 }
@@ -307,7 +308,6 @@
 .grid-1 h2 {
     width: auto;
     text-align: left;
-    color: #545454;
     font-weight: 100;
     font-size: 30px;
     text-transform: uppercase;
@@ -355,8 +355,8 @@
     padding: 2rem 4rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: start;
+    justify-content: start;
     gap: 20px;
     box-sizing: border-box;
 }
@@ -364,14 +364,26 @@
 .grid-2 h2 {
     width: auto;
     text-align: left;
-    color: #545454;
     font-weight: 100;
     font-size: 30px;
     text-transform: uppercase;
-    margin: 0;
     padding: 3px 30px 0 0;
     border-bottom: 2px solid #545454;
     letter-spacing: 1.5px;
+}
+
+.grid-2 h4 {
+    width: auto;
+    text-align: left;
+    font-weight: 100;
+    font-size: 20px;
+    margin: 0;
+}
+
+.grid-2 h5 {
+    width: auto;
+    font-size: 16px;
+    margin: 0;
 }
 
 .grid-2 input {
@@ -441,6 +453,38 @@
     background-color: #3b3b3b;
     transition: all 0.25s ease-in-out;
     transform: scale(1.08);
+}
+
+@media print {
+    .content-holder-grid {
+        grid-template-columns: 45% 55%;
+        grid-gap: 2px;
+        margin: 25px 0 0 0;
+    }
+
+    .grid-1 h2 {
+        font-size: 16px;
+    }
+    
+    .grid-2 h2 {
+        font-size: 16px;
+    }
+
+    .grid-2 h4 {
+        font-size: 15px;
+    }
+    
+    .grid-2 h5 {
+        width: auto;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .grid-2 p {
+        width: auto;
+        font-size: 13px;
+        margin: 0;
+    }
 }
 
 

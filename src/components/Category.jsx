@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BsXLg } from 'react-icons/bs'
 import './category.css'
 import CATEGORY_DETAILS from '../data/CATEGORY-DETAILS'
@@ -11,11 +11,6 @@ import Experience from './sub-components/Experience'
 import Credentials from './sub-components/Credentials'
 import Skills from './sub-components/Skills'
 import Certification from './sub-components/Certification'
-import CredentialFunction from './sub-components/CredentialFunction'
-import EducationFunction from './sub-components/EducationFunction'
-import ExperienceFunction from './sub-components/ExperienceFunction'
-import SkillsFunction from './sub-components/SkillsFunction'
-import CertificationFunction from './sub-components/CertificationFunction'
 import ShowResumeFormats from './resume-formats/ShowResumeFormats'
 
 export default function Category({ 
@@ -33,6 +28,8 @@ export default function Category({
 
     const [showResumeFormats, setShowResumeFormats] = useState(false);
     const [errorsMessage, setErrorMessage] = useState(false);
+    const [emptyErrorTexts, setEmptyErrorTexts] = useState([]);
+    const [lengthErrorTexts, setLengthErrorTexts] = useState([]);
     const [templates, setTemplates] = useState(false);
     const [format, setFormat] = useState(null);
 
@@ -73,92 +70,89 @@ export default function Category({
         setFormat(null);
     }
 
-    const {
-        errorResponses,
-        resumeCredentials,
-    } = CredentialFunction();
-
-    const {
-        educationSections,
-    } = EducationFunction();
-
-    const {
-        experienceSections,
-    } = ExperienceFunction();
-
-    const {
-        skills,
-    } = SkillsFunction();
-
-    const {
-        certifications,
-    } = CertificationFunction();
-
-    const err = errorResponses;
-
-    const cred = resumeCredentials;
+    const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const isNumeric = (value) => /^[0-9]+$/.test(value) && 
+    !/\s/.test(value) && !/[A-Za-z]/.test(value) && 
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
     const handleSubmit = (e) => {
         e.preventDefault();
     
-        console.log('errorResponses:', err);
-        console.log('resumeCredentials:', cred);
+        const creds = JSON.parse(localStorage.getItem('resumeCredentials'));
+    
+        // Clear previous errors
+        setEmptyErrorTexts([]);
+        setLengthErrorTexts([]);
+    
+        // Array to hold error messages
+        const errors = [];
+    
+        // Check for empty fields and invalid field lengths
+        if (creds.firstName === '') {
+            errors.push('First Name is empty');
+        } else if (creds.firstName.length < 3 || creds.firstName.length > 15) {
+            errors.push('Length error in First Name field');
+        }
+    
+        if (creds.lastName === '') {
+            errors.push('Last Name is empty');
+        } else if (creds.lastName.length < 3 || creds.lastName.length > 10) {
+            errors.push('Length error in Last Name field');
+        }
+    
+        if (creds.designation === '') {
+            errors.push('Designation is empty');
+        } else if (creds.designation.length < 6 || creds.designation.length > 30) {
+            errors.push('Length error in Designation field');
+        }
+    
+        if (creds.email === '') {
+            errors.push('Email is empty');
+        } else if (creds.email.length < 6 || creds.email.length > 50) {
+            errors.push('Length error in Email field');
+        }
+    
+        if (creds.phoneNumber === '') {
+            errors.push('Phone Number is empty');
+        } else if (creds.phoneNumber.length < 11 || creds.phoneNumber.length > 14) {
+            errors.push('Length error in Phone Number field');
+        }
+    
+        if (creds.address === '') {
+            errors.push('Address is empty');
+        } else if (creds.address.length < 10 || creds.address.length > 50) {
+            errors.push('Length error in Address field');
+        }
+    
+        if (creds.summary === '') {
+            errors.push('Summary is empty');
+        } else if (creds.summary.length < 100 || creds.summary.length > 1000) {
+            errors.push('Length error in Summary field');
+        }
+    
+        // Update error state based on presence of errors
+        if (errors.length === 0) {
+            setShowResumeFormats(true);
+            setErrorMessage(false); 
+            setEmptyErrorTexts([]);
+            setLengthErrorTexts([]);
+        } else {
+            setErrorMessage(true);
+            const emptyErrors = errors.filter(errorMessage => errorMessage.includes('empty'));
+            const lengthErrors = errors.filter(errorMessage => errorMessage.includes('error'));
+            console.log(emptyErrors, lengthErrors);
+            setEmptyErrorTexts(emptyErrors);
+            setLengthErrorTexts(lengthErrors);
+            setTimeout(() => {
+                setErrorMessage(false);
+                setEmptyErrorTexts([]);
+                setLengthErrorTexts([]);
+            }, 20000);
+        }
     };
-    
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
+    const allErrorTexts = [...emptyErrorTexts, ...lengthErrorTexts];
     
-    //     // Check for errors in each state
-    //     const hasCredentialErrors = Object.keys(errorResponses).some(field => {
-    //         const errorMessage = errorResponses[field];
-    //         console.log('Error Message (Credentials):', errorMessage);
-    //         return errorMessage.trim() !== '';
-    //     });
-        
-    //     const hasEducationErrors = educationSections.some(section => (
-    //         Object.keys(section.errors).some(field => {
-    //             const errorMessage = section.errors[field];
-    //             return errorMessage.trim() !== '';
-    //         })
-    //     ));
-        
-    //     const hasExperienceErrors = experienceSections.some(section => (
-    //         Object.keys(section.errors).some(field => {
-    //             const errorMessage = String(section.errors[field]);
-    //             return errorMessage.trim() !== '';
-    //         })
-    //     ));
-        
-    //     const hasSkillsErrors = skills.some(skill => (
-    //         skill.error.trim() !== ''
-    //     ));
-        
-    //     const hasCertificationErrors = certifications.some(certification => (
-    //         Object.keys(certification.errors).some(field => {
-    //             const errorMessage = certification.errors[field];
-    //             return errorMessage.trim() !== '';
-    //         })
-    //     ));
-    
-    //     // Log errors for each state
-    //     console.log('Credential Errors:', hasCredentialErrors);
-    //     console.log('Education Errors:', hasEducationErrors);
-    //     console.log('Experience Errors:', hasExperienceErrors);
-    //     console.log('Skills Errors:', hasSkillsErrors);
-    //     console.log('Certification Errors:', hasCertificationErrors);
-    
-    //     // If no errors in any state, proceed
-    //     if (!hasCredentialErrors && !hasEducationErrors && !hasExperienceErrors && !hasSkillsErrors && !hasCertificationErrors) {
-    //         setShowResumeFormats(true);
-    //     } else {
-    //         // If there are errors, show error message
-    //         setErrorMessage(true);
-    //         setTimeout(() => {
-    //             setErrorMessage(false);
-    //         }, 20000);
-    //     }
-    // };
 
     const clearResume = () => {
         localStorage.removeItem('resumeCredentials');
@@ -184,11 +178,6 @@ export default function Category({
                     handleTemplates={handleTemplates} 
                     backToTemplates={closeTemplate}
                     handleOutsideClick={handleOutsideClick}
-                    resumeCredentials={resumeCredentials}
-                    educationSections={educationSections}
-                    experienceSections={experienceSections}
-                    skills={skills}
-                    certifications={certifications}
                 />
         }
         {
@@ -212,8 +201,13 @@ export default function Category({
             errorsMessage &&
             <div id="error-message" className="error-message">
                 <button className="close" onClick={() => setErrorMessage(false)}><BsXLg /></button>
-                <p>You have errors in your resume form.</p>
-                <p>Kindly follow the tips for each field.</p>
+                {allErrorTexts.length > 0 && (
+                    <>
+                        {allErrorTexts.map((errorMessage, index) => (
+                            <p key={index}>{errorMessage}</p>
+                        ))}
+                    </>
+                )}
             </div>
         }
         <div className={`single-category-view ${className}`}>

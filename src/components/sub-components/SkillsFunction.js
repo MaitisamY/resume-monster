@@ -55,8 +55,8 @@ export default function SkillsFunction() {
             case 'skill':
                 return value.length === 0
                     ? 'Skill is empty'
-                    : value.length < 10 || value.length > 100
-                    ? 'Skill should be between 10 and 100 characters'
+                    : value.length < 3 || value.length > 80
+                    ? 'Skill should be between 3 and 80 characters'
                     : ''
             default:
                 return ''
