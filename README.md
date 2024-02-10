@@ -39,7 +39,9 @@ The Resume Builder project provides a user-friendly interface to create and cust
 - **Dynamic Section Management:** In sections like experience, education, skills, and certifications, you can add or remove sections as needed to customize your resume comprehensively.
 - **Detailed Descriptions:** The ability to add detailed descriptions within the experience section allows you to highlight specific achievements and responsibilities for each role.
 - **Remove Section Button:** With the "Remove Section" button, you can easily delete any redundant sections to streamline your resume.
+- **Web Storage Usage:** Various points in this project utilize Web Storage to store and manage user data efficiently.
 
 Start building your professional resume with our Resume Builder project today and stand out from the crowd!
+
 
 
