@@ -76,7 +76,7 @@ export default function Classic() {
                         <img className="img" src={resumeCredentials && EMAIL} alt="email" width={20} />
                     </p>
                     <p>
-                        <small className="font-lora">{resumeCredentials && resumeCredentials.address}</small>
+                        <small className="font-lora smallest">{resumeCredentials && resumeCredentials.address}</small>
                         <img src={resumeCredentials && ADDRESS} alt="address" width={20} />
                     </p>
                 </div>
