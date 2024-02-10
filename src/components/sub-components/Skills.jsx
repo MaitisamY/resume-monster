@@ -44,7 +44,7 @@ export default function Skills({ handleShowTips }) {
                     )}
                     </li>
                 </ol>
-                {skills.length > 1 &&  (
+                {(index + 1) !== 1 &&  (
                     <button 
                         className="remove-detail-point negative ml-10" 
                         type="button" 
