@@ -40,7 +40,7 @@ export default function ShowResumeFormats({
             <button className="close" onClick={closePopup}><BsXLg /></button>
             <div className="resume-formats" style={{ 
                 height: format !== null || finalResume ? '100%' : '90%', 
-                width: format !== null || finalResume ? '100%' : '70%' 
+                width: format !== null || finalResume ? '70%' : '70%' 
                 }}
             >
             {
@@ -61,6 +61,8 @@ export default function ShowResumeFormats({
                             <li>Click on the image to preview the resume template.</li>
                             <li>Click on the preview button to preview the resume with the information you provided.</li>
                             <li>Some of the templates are not available, we are working on them.</li>
+                            <li>Click on the download button to download the resume.</li>
+                            <li>If you left any errors in the form, they will be shown on the preview.</li>
                         </ul>
                         <div className="resume-template">
                             <img 

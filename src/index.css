@@ -53,6 +53,20 @@
     }
 }
 
+.no-page-break {
+    page-break-inside: avoid;
+}
+
+/* Apply page break before the specified elements */
+.page-break-before {
+    page-break-before: always;
+}
+
+/* Apply page break after the specified elements */
+.page-break-after {
+    page-break-after: always;
+}
+
 * {
     margin: 0;
     padding: 0;

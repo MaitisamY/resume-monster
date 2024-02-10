@@ -132,18 +132,6 @@
     letter-spacing: 1.5px;
 }
 
-.classic-view-header .name-designation pre {
-    color: #545454;
-    font-weight: normal;
-    font-size: 12px;
-    padding: 0 0 0 15px;
-    letter-spacing: 1.5px;
-}
-
-.classic-view-header .name-designation pre i {
-    font-style: normal;
-}
-
 .classic-view-header .details {
     display: flex;
     flex-direction: column;
@@ -163,18 +151,6 @@
     font-size: 18px;
     margin-right: 15px;
     letter-spacing: 1.5px;
-}
-
-.classic-view-header .details pre {
-    color: #545454;
-    font-weight: normal;
-    font-size: 12px;
-    padding: 0 0 0 15px;
-    letter-spacing: 1.5px;
-}
-
-.classic-view-header .details pre i {
-    font-style: normal;
 }
 
 .classic-view-header .line {
@@ -418,5 +394,7 @@
         margin: 0;
     }
 }
+
+
 
 

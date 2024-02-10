@@ -6,6 +6,7 @@ import { useState } from 'react'
 import html2pdf from 'html2pdf.js'
 import { BsDownload } from 'react-icons/bs'
 import './classic.css'
+import './download.css'
 import CELL from '../../assets/icons/cell.png'
 import EMAIL from '../../assets/icons/email.png'
 import ADDRESS from '../../assets/icons/address.png'
@@ -16,6 +17,7 @@ import ExperienceFunction from '../sub-components/ExperienceFunction'
 import SkillsFunction from '../sub-components/SkillsFunction'
 import CertificationFunction from '../sub-components/CertificationFunction'
 export default function Classic() {
+    const [download, setDownload] = useState(false)
     const {
         errorResponses,
         resumeCredentials,
@@ -38,13 +40,13 @@ export default function Classic() {
     } = CertificationFunction();
 
     const handleDownload = () => {
-        const element = document.getElementById('classic-view'); 
+        const element = document.getElementById('download-content'); 
         html2pdf(element, {
-            margin: [0, 0.3, 0, 0.3],
+            margin: [0.2, 0.3, 0.2, 0.3],
             filename: 'resume.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { scale: 2, dpi: 300 },
-            pagebreak: { mode: 'avoid', before: '.page-break' },
+            pagebreak: { mode: ['avoid', 'css'], after: '.page-break-after', avoid: 'hr, h1, h2, h3, h4, h5, h6, p' },
             useCORS: true,
             metaData: { author: 'Resume-Monster', subject: 'Resume', title: 'Resume' },
             jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait', pagesplit: true, autoFirstPage: false },
@@ -53,8 +55,8 @@ export default function Classic() {
 
     return (
         <>
-        <button className="download" onClick={handleDownload}><BsDownload /></button>
-        <div id="classic-view" className="template-box">
+        <button className="download-btn" onClick={handleDownload}><BsDownload /></button>
+        <div id="download-content" className="download">
             <div className="classic-view-header">
                 <div className="name-designation font-lora">
                     <p><i>{resumeCredentials && resumeCredentials.firstName}</i> &nbsp; 
@@ -67,15 +69,15 @@ export default function Classic() {
                 <div className="details">
                     <p>
                         <small className="font-lora">{resumeCredentials && `+${resumeCredentials.phoneNumber}`}</small>
-                        <img className="img" src={resumeCredentials && CELL} alt="cell" width={30} />
+                        <img className="img" src={resumeCredentials && CELL} alt="cell" width={20} />
                     </p>
                     <p>
                         <small className="font-lora">{resumeCredentials && resumeCredentials.email}</small>
-                        <img className="img" src={resumeCredentials && EMAIL} alt="email" width={30} />
+                        <img className="img" src={resumeCredentials && EMAIL} alt="email" width={20} />
                     </p>
                     <p>
                         <small className="font-lora">{resumeCredentials && resumeCredentials.address}</small>
-                        <img src={resumeCredentials && ADDRESS} alt="address" width={30} />
+                        <img src={resumeCredentials && ADDRESS} alt="address" width={20} />
                     </p>
                 </div>
             </div>
@@ -88,7 +90,7 @@ export default function Classic() {
                     <h2 className="font-lora text-classic-resume">Education</h2>
                     {
                         educationSections.map((section, index) => (
-                            <div key={section.id} className={`mt-15 ${index !== educationSections.length - 1 && 'page-break-after'}`}>
+                            <div key={section.id} className="mt-15">
                                 {
                                     section.institution.length >= 3 && section.institution.length <= 30 ? (
                                         <h4 className="font-lora text-classic-resume">{section.institution}</h4>
@@ -119,12 +121,12 @@ export default function Classic() {
                     <h2 className="font-lora text-classic-resume">Skills</h2>
                     {
                         skills.map((skill, index) => (
-                            <ul key={skill.id} className={`${index !== skills.length - 1 && 'page-break-after'}`}>
-                                <li className="font-lora text-classic-resume ml-15">
+                            <ul key={skill.id} className="mt-15">
+                                <li className="font-lora text-classic-resume">
                                 {skill.skill.length >= 3 && skill.skill.length <= 80 ? (
                                     <p className="font-lora text-classic-resume">{skill.skill}</p>
                                 ) : (
-                                    <p className="font-lora text-danger">Length error (Should be 3-80 characters)</p>
+                                    <p className="font-lora text-classic-resume">Length error (Should be 3-80 characters)</p>
                                 )}
                                 </li>
                             </ul>
@@ -133,7 +135,7 @@ export default function Classic() {
                     <h2 className="font-lora text-classic-resume">Certifications</h2>
                     {
                         certifications.map((certification, index) => (
-                            <div key={certification.id} className={`mt-15 ${index !== certifications.length - 1 && 'page-break-after'}`}>
+                            <div key={certification.id} className="mt-15">
                                 {
                                     certification.institute.length >= 3 && certification.institute.length <= 30 ? (
                                         <h4 className="font-lora text-classic-resume">{certification.institute}</h4>
@@ -143,7 +145,7 @@ export default function Classic() {
                                 }
                                 {
                                     certification.certification.length >= 3 && certification.certification.length <= 30 ? (
-                                        <p className="font-lora text-classic-resume">{certification.certification}</p>
+                                        <h5 className="font-lora text-classic-resume">{certification.certification}</h5>
                                     ) : (
                                         <p className="font-lora text-danger">Length error (Should be 3-30 characters)</p>
                                     )
@@ -166,39 +168,39 @@ export default function Classic() {
                     <h2 className="font-lora text-classic-resume">Experience</h2>
                     {
                         experienceSections.map((section, index) => (
-                            <div key={section.id} className={`mt-15 ${index !== experienceSections.length - 1 && 'page-break-after'}`}>
-                              {section.experienceDesignation.length >= 3 && section.experienceDesignation.length <= 30 ? (
+                            <div key={section.id} className="mt-15">
+                            {section.experienceDesignation.length >= 3 && section.experienceDesignation.length <= 30 ? (
                                 <h4 className="font-lora text-classic-resume">{section.experienceDesignation}</h4>
-                              ) : (
+                            ) : (
                                 <h5 className="font-lora text-danger">Length error in form submission</h5>
-                              )}
-                              {section.experienceCompany.length >= 3 && section.experienceCompany.length <= 30 ? (
+                            )}
+                            {section.experienceCompany.length >= 3 && section.experienceCompany.length <= 30 ? (
                                 <h5 className="font-lora text-classic-resume">{section.experienceCompany}</h5>
-                              ) : (
+                            ) : (
                                 <h4 className="font-lora text-danger">Length error in form submission</h4>
-                              )}
-                              {section.experienceDuration.length >= 5 && section.experienceDuration.length <= 10 &&
-                              section.experienceFrom.length >= 2 && section.experienceFrom.length <= 4 &&
-                              section.experienceTo.length >= 2 && section.experienceTo.length <= 4 ? (
+                            )}
+                            {section.experienceDuration.length >= 5 && section.experienceDuration.length <= 10 &&
+                            section.experienceFrom.length >= 2 && section.experienceFrom.length <= 4 &&
+                            section.experienceTo.length >= 2 && section.experienceTo.length <= 4 ? (
                                 <p className="font-lora text-classic-resume">
-                                  {section.experienceDuration} | {section.experienceFrom} - {section.experienceTo}
+                                {section.experienceDuration} | {section.experienceFrom} - {section.experienceTo}
                                 </p>
-                              ) : (
+                            ) : (
                                 <p className="font-lora text-danger">Length error in Duration or Dates</p>
-                              )}
-                              {section.experienceDescription &&
+                            )}
+                            {section.experienceDescription &&
                                 section.experienceDescription.map((description) => (
-                                  <ul key={description.id} className="mt-10 ml-15">
+                                <ul key={description.id} className="mt-10">
                                     <li>
-                                      {description.content.length >= 5 && description.content.length <= 125 ? (
+                                    {description.content.length >= 5 && description.content.length <= 125 ? (
                                         <p className="font-lora text-classic-resume">{description.content}</p>
-                                      ) : (
+                                    ) : (
                                         <p className="font-lora text-danger">Length error (Should be 5-125 characters)</p>
-                                      )}
+                                    )}
                                     </li>
-                                  </ul>
+                                </ul>
                                 ))
-                              }
+                            }
                             </div>
                         ))
                     }

@@ -164,7 +164,7 @@
 
 .back {
     position: absolute;
-    top: 15px;
+    top: 25px;
     left: 30px;
     border: none;
     background-color: transparent;
@@ -175,6 +175,7 @@
     cursor: pointer;
     font-size: 30px;
     padding: 0;
+    z-index: 1;
 }
 
 .print-download {
@@ -204,9 +205,9 @@
     padding: 0;
 }
 
-.download {
+.download-btn {
     position: absolute;
-    top: 15px;
+    top: 25px;
     right: 30px;
     border: none;
     background-color: transparent;
@@ -217,6 +218,7 @@
     cursor: pointer;
     font-size: 30px;
     padding: 0;
+    z-index: 1;
 }
 
 @media screen and (max-width: 768px) {
@@ -256,9 +258,6 @@
 @media print {
     .resume-formats {
         box-shadow: none;
-    }
-    .download {
-        display: none;
     }
     .back {
         display: none;
