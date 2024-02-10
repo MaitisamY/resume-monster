@@ -53,6 +53,9 @@
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
+    width: 70%;
+    height: 90%;
+    border-radius: 10px;
 }
 
 .resume-formats .instructions {
@@ -236,11 +239,12 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 20px;
         box-sizing: border-box;
         flex-wrap: wrap;
         padding: 20px 20px 40px 20px;
         gap: 20px;
+        width: 100%;
     }
 
     .resume-formats .instructions {

@@ -87,54 +87,72 @@ export default function Classic() {
             </div>
             <div className="content-holder-grid">
                 <div className="grid-1">
-                    <h2 className="font-lora text-classic-resume">Education</h2>
-                    {
-                        educationSections.map((section, index) => (
+                    {educationSections.some(section => (
+                        section.institution.length > 0 || 
+                        section.degree.length > 0 || 
+                        section.startYear.length > 0 || 
+                        section.endYear.length > 0
+                    )) && (
+                        <h2 className="font-lora text-classic-resume">Education</h2>
+                    )}
+                    {educationSections.map((section, index) => (
+                        (section.institution.length > 0 || 
+                        section.degree.length > 0 || 
+                        section.startYear.length > 0 || 
+                        section.endYear.length > 0) && (
                             <div key={section.id} className="mt-15">
-                                {
-                                    section.institution.length >= 3 && section.institution.length <= 30 ? (
-                                        <h4 className="font-lora text-classic-resume">{section.institution}</h4>
-                                    ) : (
-                                        <p className="font-lora text-danger">Length error (Should be 3-30 characters)</p>
-                                    )
-                                }
-                                {
-                                    section.degree.length >= 3 && section.degree.length <= 30 ? (
-                                        <h5 className="font-lora text-classic-resume">{section.degree}</h5>
-                                    ) : (
-                                        <p className="font-lora text-danger">Length error (Should be 3-30 characters)</p>
-                                    )
-                                }
-                                {
-                                    section.startYear.length >= 2 && section.startYear.length <= 4 &&
-                                    section.endYear.length >= 2 && section.endYear.length <= 4 ? (
-                                        <p className="font-lora text-classic-resume">
-                                            {section.startYear} - {section.endYear}
-                                        </p>
-                                    ) : (
-                                        <p className="font-lora text-danger">Length error (Should be 2-4 characters)</p>
-                                    )
-                                }
+                                {/* Render education details */}
+                                {section.institution.length >= 3 && section.institution.length <= 30 ? (
+                                    <h4 className="font-lora text-classic-resume">{section.institution}</h4>
+                                ) : (
+                                    <p className="font-lora text-danger">Length error (Should be 3-30 characters)</p>
+                                )}
+                                {section.degree.length >= 3 && section.degree.length <= 30 ? (
+                                    <h5 className="font-lora text-classic-resume">{section.degree}</h5>
+                                ) : (
+                                    <p className="font-lora text-danger">Length error (Should be 3-30 characters)</p>
+                                )}
+                                {(section.startYear.length >= 2 && section.startYear.length <= 4) &&
+                                (section.endYear.length >= 2 && section.endYear.length <= 4) ? (
+                                    <p className="font-lora text-classic-resume">
+                                        {section.startYear} - {section.endYear}
+                                    </p>
+                                ) : (
+                                    <p className="font-lora text-danger">Length error (Should be 2-4 characters)</p>
+                                )}
                             </div>
-                        ))
-                    }
-                    <h2 className="font-lora text-classic-resume">Skills</h2>
-                    {
-                        skills.map((skill, index) => (
+                        )
+                    ))}
+                    {skills.some(skill => skill.skill.length > 0) && (
+                        <h2 className="font-lora text-classic-resume">Skills</h2>
+                    )}
+                    {skills.map((skill) => (
+                        skill.skill.length > 0 && (
                             <ul key={skill.id} className="mt-15">
                                 <li className="font-lora text-classic-resume">
-                                {skill.skill.length >= 3 && skill.skill.length <= 80 ? (
-                                    <p className="font-lora text-classic-resume">{skill.skill}</p>
-                                ) : (
-                                    <p className="font-lora text-classic-resume">Length error (Should be 3-80 characters)</p>
-                                )}
+                                    {skill.skill.length >= 3 && skill.skill.length <= 80 ? (
+                                        <p className="font-lora text-classic-resume">{skill.skill}</p>
+                                    ) : (
+                                        <p className="font-lora text-classic-resume">Length error (Should be 3-80 characters)</p>
+                                    )}
                                 </li>
                             </ul>
-                        ))
-                    }
-                    <h2 className="font-lora text-classic-resume">Certifications</h2>
+                        )
+                    ))}
+                    {certifications.some(certification => (
+                        certification.institute.length > 0 || 
+                        certification.certification.length > 0 || 
+                        certification.yearFrom.length > 0 || 
+                        certification.yearTo.length > 0
+                    )) && (
+                        <h2 className="font-lora text-classic-resume">Certifications</h2>
+                    )}
                     {
-                        certifications.map((certification, index) => (
+                        certifications.map((certification) => (
+                            (certification.institute.length > 0 || 
+                                certification.certification.length > 0 || 
+                                certification.yearFrom.length > 0 || 
+                                certification.yearTo.length > 0) && (
                             <div key={certification.id} className="mt-15">
                                 {
                                     certification.institute.length >= 3 && certification.institute.length <= 30 ? (
@@ -161,49 +179,64 @@ export default function Classic() {
                                     )
                                 }
                             </div>
-                        ))
+                        )))
                     }
                 </div>
                 <div className="grid-2">
-                    <h2 className="font-lora text-classic-resume">Experience</h2>
-                    {
-                        experienceSections.map((section, index) => (
+                    {experienceSections.some(section => (
+                        section.experienceDesignation.length > 0 || 
+                        section.experienceCompany.length > 0 || 
+                        section.experienceDuration.length > 0 || 
+                        section.experienceFrom.length > 0 || 
+                        section.experienceTo.length > 0 || 
+                        (section.experienceDescription && section.experienceDescription.length > 0)
+                    )) && (
+                        <h2 className="font-lora text-classic-resume">Experience</h2>
+                    )}
+                    {experienceSections.map((section, index) => (
+                        (section.experienceDesignation.length > 0 || 
+                        section.experienceCompany.length > 0 || 
+                        section.experienceDuration.length > 0 || 
+                        section.experienceFrom.length > 0 || 
+                        section.experienceTo.length > 0 || 
+                        (section.experienceDescription && section.experienceDescription.length > 0)) && (
                             <div key={section.id} className="mt-15">
-                            {section.experienceDesignation.length >= 3 && section.experienceDesignation.length <= 30 ? (
-                                <h4 className="font-lora text-classic-resume">{section.experienceDesignation}</h4>
-                            ) : (
-                                <h5 className="font-lora text-danger">Length error in form submission</h5>
-                            )}
-                            {section.experienceCompany.length >= 3 && section.experienceCompany.length <= 30 ? (
-                                <h5 className="font-lora text-classic-resume">{section.experienceCompany}</h5>
-                            ) : (
-                                <h4 className="font-lora text-danger">Length error in form submission</h4>
-                            )}
-                            {section.experienceDuration.length >= 5 && section.experienceDuration.length <= 10 &&
-                            section.experienceFrom.length >= 2 && section.experienceFrom.length <= 4 &&
-                            section.experienceTo.length >= 2 && section.experienceTo.length <= 4 ? (
-                                <p className="font-lora text-classic-resume">
-                                {section.experienceDuration} | {section.experienceFrom} - {section.experienceTo}
-                                </p>
-                            ) : (
-                                <p className="font-lora text-danger">Length error in Duration or Dates</p>
-                            )}
-                            {section.experienceDescription &&
-                                section.experienceDescription.map((description) => (
-                                <ul key={description.id} className="mt-10">
-                                    <li>
-                                    {description.content.length >= 5 && description.content.length <= 125 ? (
-                                        <p className="font-lora text-classic-resume">{description.content}</p>
-                                    ) : (
-                                        <p className="font-lora text-danger">Length error (Should be 5-125 characters)</p>
-                                    )}
-                                    </li>
-                                </ul>
-                                ))
-                            }
+                                {/* Render experience details */}
+                                {section.experienceDesignation.length >= 3 && section.experienceDesignation.length <= 30 ? (
+                                    <h4 className="font-lora text-classic-resume">{section.experienceDesignation}</h4>
+                                ) : (
+                                    <h5 className="font-lora text-danger">Length error in form submission</h5>
+                                )}
+                                {section.experienceCompany.length >= 3 && section.experienceCompany.length <= 30 ? (
+                                    <h5 className="font-lora text-classic-resume">{section.experienceCompany}</h5>
+                                ) : (
+                                    <h4 className="font-lora text-danger">Length error in form submission</h4>
+                                )}
+                                {section.experienceDuration.length >= 5 && section.experienceDuration.length <= 10 &&
+                                section.experienceFrom.length >= 2 && section.experienceFrom.length <= 4 &&
+                                section.experienceTo.length >= 2 && section.experienceTo.length <= 4 ? (
+                                    <p className="font-lora text-classic-resume">
+                                        {section.experienceDuration} | {section.experienceFrom} - {section.experienceTo}
+                                    </p>
+                                ) : (
+                                    <p className="font-lora text-danger">Length error in Duration or Dates</p>
+                                )}
+                                {section.experienceDescription &&
+                                    section.experienceDescription.map((description) => (
+                                        <ul key={description.id} className="mt-10">
+                                            <li>
+                                                {description.content.length >= 5 && description.content.length <= 125 ? (
+                                                    <p className="font-lora text-classic-resume">{description.content}</p>
+                                                ) : (
+                                                    <p className="font-lora text-danger">Length error (Should be 5-125 characters)</p>
+                                                )}
+                                            </li>
+                                        </ul>
+                                    ))
+                                }
                             </div>
-                        ))
-                    }
+                        )
+                    ))}
                 </div>
             </div>
         </div>
