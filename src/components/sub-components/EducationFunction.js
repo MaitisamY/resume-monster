@@ -90,14 +90,14 @@ export default function EducationFunction() {
         case 'institution':
             return value.length === 0 
               ? 'Institution name is empty'
-              : value.length < 3 || value.length > 20
-              ? 'Institution should be between 3 and 20'
+              : value.length < 3 || value.length > 30
+              ? 'Institution should be between 3 and 30'
               : ''
         case 'degree':
             return value.length === 0 
               ? 'Degree / Course is empty'
-              : value.length < 3 || value.length > 20
-              ? 'Degree should be between 3 and 20'
+              : value.length < 3 || value.length > 30
+              ? 'Degree should be between 3 and 30'
               : ''
         case 'startYear':
             return value.length === 0 

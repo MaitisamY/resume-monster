@@ -124,7 +124,7 @@ export default function Tips({ title }) {
                                 <li>Details are optional.</li>
                                 <li>You can add details of your experience.</li>
                                 <li>What were your responsibilities?</li>
-                                <li>Detail should be between 25 and 125 characters.</li>
+                                <li>Detail should be between 5 and 125 characters.</li>
                             </ol>
                         </>
                     ) : title === 'institution' ? (
@@ -133,7 +133,7 @@ export default function Tips({ title }) {
                             <ol className="text-white">
                                 <li>Institution is optional.</li>
                                 <li>Institution can be alphanumeric.</li>
-                                <li>Institution must be between 6 and 30 characters.</li>
+                                <li>Institution must be between 3 and 30 characters.</li>
                             </ol>
                         </>
                     ) : title === 'degree' ? (
@@ -142,7 +142,7 @@ export default function Tips({ title }) {
                             <ol className="text-white">
                                 <li>Degree is optional.</li>
                                 <li>Degree can be alphanumeric.</li>
-                                <li>Degree must be between 6 and 30 characters.</li>
+                                <li>Degree must be between 3 and 30 characters.</li>
                             </ol>
                         </>
                     ) : title === 'startYear' ? (
@@ -179,7 +179,7 @@ export default function Tips({ title }) {
                             <ol className="text-white">
                                 <li>Institute name is optional.</li>
                                 <li>Institute can be alphanumeric.</li>
-                                <li>Institute must be between 3 and 25 characters.</li>
+                                <li>Institute must be between 3 and 30 characters.</li>
                             </ol>
                         </>
                     ) : title === 'certification' ? (
@@ -188,7 +188,7 @@ export default function Tips({ title }) {
                             <ol className="text-white">
                                 <li>Certification name is optional.</li>
                                 <li>Certification can be alphanumeric.</li>
-                                <li>Certification must be between 3 and 25 characters.</li>
+                                <li>Certification must be between 3 and 30 characters.</li>
                             </ol>
                         </>
                     ) : title === 'yearStartFrom' ? (

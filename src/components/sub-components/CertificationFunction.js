@@ -92,14 +92,14 @@ export default function CertificationFunction() {
             case 'institute':
                 return value.length === 0
                     ? 'Institute name is empty'
-                    : value.length < 3 || value.length > 25
-                    ? 'Institute name should be between 3 and 20 characters'
+                    : value.length < 3 || value.length > 30
+                    ? 'Institute name should be between 3 and 30 characters'
                     : ''
             case 'certification':
                 return value.length === 0
                     ? 'Certification is empty'
-                    : value.length < 3 || value.length > 25
-                    ? 'Certification should be between 3 and 25 characters'
+                    : value.length < 3 || value.length > 30
+                    ? 'Certification should be between 3 and 30 characters'
                     : ''
             case 'yearFrom':
                 return value.length === 0

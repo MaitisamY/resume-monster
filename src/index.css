@@ -30,6 +30,29 @@
     opacity: 1;
 }
 
+@media print {
+    /* Set page size to A4 */
+    @page {
+        size: auto;
+        orientation: portrait;
+        counter-increment: page;
+        counter-reset: page 1;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 10mm;
+        margin-right: 10mm;
+    }
+  
+    .page-break-after {
+        page-break-after: always;
+    }
+  
+    /* Optionally, prevent certain elements from breaking across pages */
+    .no-page-break {
+        page-break-inside: avoid;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
