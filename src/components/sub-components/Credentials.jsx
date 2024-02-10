@@ -18,7 +18,7 @@ export default function Credentials({ handleShowTips }) {
             </div>
             <div className="row">
                 <div className="input-group">
-                    <label className="font-work-sans">Your First Name</label>
+                    <label className="font-work-sans">Your First Name*</label>
                     <input 
                         name="firstName"
                         value={resumeCredentials.firstName}
@@ -37,7 +37,7 @@ export default function Credentials({ handleShowTips }) {
                     {errorResponses.firstName && <p className="text-danger pl-20">{errorResponses.firstName}</p>}
                 </div>
                 <div className="input-group">
-                    <label className="font-work-sans">Your Last Name</label>
+                    <label className="font-work-sans">Your Last Name*</label>
                     <input 
                         name="lastName"
                         value={resumeCredentials.lastName}
@@ -56,7 +56,7 @@ export default function Credentials({ handleShowTips }) {
                     {errorResponses.lastName && <p className="text-danger pl-20">{errorResponses.lastName}</p>}
                 </div>
                 <div className="input-group">
-                    <label className="font-work-sans">Your Designation</label>
+                    <label className="font-work-sans">Your Designation*</label>
                     <input 
                         name="designation"
                         value={resumeCredentials.designation}
@@ -77,7 +77,7 @@ export default function Credentials({ handleShowTips }) {
             </div>
             <div className="row">
                 <div className="input-group">
-                    <label className="font-work-sans">Your Email Address</label>
+                    <label className="font-work-sans">Your Email Address*</label>
                     <input 
                         name="email"
                         value={resumeCredentials.email}
@@ -96,7 +96,7 @@ export default function Credentials({ handleShowTips }) {
                     {errorResponses.email && <p className="text-danger pl-20">{errorResponses.email}</p>}
                 </div>
                 <div className="input-group">
-                    <label className="font-work-sans">Your Cell Phone Number</label>
+                    <label className="font-work-sans">Your Cell Phone Number*</label>
                     <input 
                         name="phoneNumber"
                         value={resumeCredentials.phoneNumber}
@@ -117,7 +117,7 @@ export default function Credentials({ handleShowTips }) {
             </div>
             <div className="row">
                 <div className="input-group">
-                    <label className="font-work-sans">Your Address</label>
+                    <label className="font-work-sans">Your Address*</label>
                     <textarea 
                         name="address"
                         value={resumeCredentials.address}
@@ -136,7 +136,7 @@ export default function Credentials({ handleShowTips }) {
                     {errorResponses.address && <p className="text-danger pl-20">{errorResponses.address}</p>}
                 </div>
                 <div className="input-group">
-                    <label className="font-work-sans">About You (Summary)</label>
+                    <label className="font-work-sans">About You (Summary)*</label>
                     <textarea 
                         name="summary"
                         value={resumeCredentials.summary}
