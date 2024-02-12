@@ -15,13 +15,13 @@ The Resume Builder project provides a user-friendly interface to create and cust
 
 ### 2. Experience
 - Add your work experience, including job titles, company names, and duration.
-- Use the "Add Experience" button to create additional sections for multiple work experiences.
+- Use the "Add another Experience section" button to create additional sections for multiple work experiences.
 - In the details field, describe your responsibilities and achievements in each role.
 - Utilize the "Remove Section" button to delete any unnecessary experience sections.
 
 ### 3. Education
 - Input your educational background, including institutions attended, degrees earned, and graduation dates.
-- Click the "Add Education" button to include multiple educational achievements.
+- Click the "Add another Education section" button to include multiple educational achievements.
 - Ensure accuracy and conciseness in describing your academic accomplishments.
 
 ### 4. Skills
@@ -31,7 +31,7 @@ The Resume Builder project provides a user-friendly interface to create and cust
 
 ### 5. Certifications
 - Include any certifications or professional qualifications you have obtained.
-- Click "Add Certification" to add multiple certifications.
+- Click "Add another Certification section" to add multiple certifications.
 - Provide details such as the certification name, issuing authority, and dates.
 
 ## Additional Features
