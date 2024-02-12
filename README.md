@@ -41,6 +41,30 @@ The Resume Builder project provides a user-friendly interface to create and cust
 - **Remove Section Button:** With the "Remove Section" button, you can easily delete any redundant sections to streamline your resume.
 - **Web Storage Usage:** Various points in this project utilize Web Storage to store and manage user data efficiently.
 
+## Usage
+1. **Select Resume Type**: Choose the desired resume category.
+2. **Fill Out Form**: Fill out the resume form with relevant information. Helpful tooltips are available for each field.
+3. **Validate Form**: Ensure all required fields are filled out correctly and submit the form.
+4. **Select Template**: Choose from available resume templates.
+5. **Preview**: Preview the resume to ensure it looks polished and professional.
+6. **Download**: Download the resume in PDF format for sharing or printing.
+
+## Installation
+1. Clone or download the Resume Monster repository from [GitHub](https://github.com/MaitisamY/resume-monster).
+2. Navigate to the project directory.
+3. Run `npm install` to install dependencies.
+4. Run `npm run dev` to start the development server.
+5. Open the provided URL in a web browser to access the application.
+
+## Live Demo
+Check out the live version of the project [here](https://resume-monster.vercel.app/)
+
+## Support
+For any inquiries or support requests, please contact the development team through our GitHub repository.
+
+## Note
+This project is currently under development, with only one resume category and one template available. More categories and templates will be added in future updates.
+
 Start building your professional resume with our Resume Builder project today and stand out from the crowd!
 
 
